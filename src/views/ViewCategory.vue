@@ -10,7 +10,7 @@
 
  
 <script>
-     import { H5P } from 'h5p-standalone'; // ES6
+   import { H5P } from 'h5p-standalone'; // ES6
 // const { H5P } = require('h5p-standalone'); AMD
 // const { H5P } = 'H5PStandalone'; // object destructuring
 
@@ -76,6 +76,7 @@ player1.then(() => {
 body{
     font-family: Arial, Helvetica, sans-serif;
     color:black;
+    border: 1px solid black;
 }
 .btn{
     width: 90px;

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue'
 import CateGory from '../views/ViewCategory.vue'
+import Splash from '../views/Splash.vue'
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -13,6 +14,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/home',
     name: 'Home',
     component: HomePage
+  }, {
+    path: '/splash',
+    name: 'Splash',
+    component: Splash
   }, {
     path: '/category',
     name: 'ViewCategory',

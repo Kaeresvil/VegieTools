@@ -1,30 +1,38 @@
 <template>
-    <h2>Category</h2>
-
-     <swiper class="slidePage"
+  <ion-page>
+    <ion-content :fullscreen="true">
+       <swiper class="slidePage"
     :modules="modules"
+    :autoplay="{
+      delay: 2000,
+    }"
     @swiper="onSwiper"
-    @beforeInit="onBeforeInit"
     @slideChange="onSlideChange"
   >
   <!-- slide for first page -->
         <swiper-slide class="page1">
-     <ion-img class="logo1" src="../../assets/amp.jpg"></ion-img>
+    <Splash/> 
         </swiper-slide>
 
 
     <!-- slide for HomePage -->
         <swiper-slide>
-      <p>Slide 2</p>
+  <HomePage/>
         </swiper-slide>
        
       </swiper>
+    </ion-content>
+  </ion-page>
 </template>
+
+
 <script>
 import { defineComponent } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import {  Autoplay, A11y } from 'swiper';
-
+import { IonContent, IonPage } from '@ionic/vue';
+import Splash from './Splash.vue'
+import HomePage from './HomePage.vue'
 
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -32,50 +40,34 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import '@ionic/vue/css/ionic-swiper.css';
 export default defineComponent({
-     name: 'ViewCategory',
+     name: 'SliderPage',
   components: { 
     Swiper,
     SwiperSlide,
+    IonContent,
+    IonPage, 
+    Splash,  
+    HomePage,  
 },
     setup() {
-      const onBeforeInit = (swiper) => {
-      console.log(swiper.activeIndex);
-      if (swiper.activeIndex == 0){
-        swiper.allowSlidePrev = false;
-        console.log(swiper.allowSlidePrev)
-      }
-      };
-      const onSlideChange = (swiper) => {
-      console.log(swiper.activeIndex);
       
+      const onSlideChange = (swiper) => {
+        swiper.autoplay.running = false;
+        console.log(swiper.activeIndex);
       };
       return {
         onSlideChange,
-        onBeforeInit
-        
+         modules: [ Autoplay, A11y]
       };
     },
 });
 </script>
-
-
 <style scoped>
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body{
-    font-family: Arial, Helvetica, sans-serif;
- 
-   
-}
 .slidePage{
-    position: absolute;
-    height: 400px;
-    width: 100vw;
-   
+    height: 100%;
 }
-
-
+.page1{
+    background-color: #0c4b05;
+    color: white;
+}
 </style>

@@ -3,26 +3,32 @@ import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue'
 import CateGory from '../views/ViewCategory.vue'
 import Splash from '../views/Splash.vue'
+import SliderPage from '../views/slider.vue'
 
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/Slider'
   },
+  {
+    path: '/slider',
+    name: 'Slider',
+    component: SliderPage
+  }, 
   {
     path: '/home',
     name: 'Home',
     component: HomePage
   }, {
     path: '/splash',
-    name: 'Splash',
+    name: 'SplashLoader',
     component: Splash
   }, {
-    path: '/category',
+    path: '/home/category',
     name: 'ViewCategory',
     component: CateGory
-  },
+  }
  
 ]
 

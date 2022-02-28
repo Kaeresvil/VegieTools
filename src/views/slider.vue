@@ -54,6 +54,14 @@ export default defineComponent({
       const onSlideChange = (swiper) => {
         swiper.autoplay.running = false;
         console.log(swiper.activeIndex);
+         if (swiper.activeIndex == 1){
+        swiper.allowSlideNext = false;
+        swiper.allowSlidePrev = true;
+        console.log(swiper.allowSlidePrev)
+      }else if(swiper.activeIndex == 0){
+         swiper.allowSlideNext = true;
+         swiper.allowSlidePrev = false;
+      }
       };
       return {
         onSlideChange,

@@ -42,7 +42,7 @@
        <div class="footer">
            <div class="grid-item">
                 <ion-icon @click="backClick" class="footerbtn" src="../../assets/svg/arrowBack.svg"></ion-icon>
-                 <p @click="aboutClick" >Back</p>
+                 <p @click="backClick" >Back</p>
             </div>
             <div class="grid-item">
                 <ion-icon @click="homeClick"  class="footerbtn" src="../../assets/svg/home.svg"></ion-icon>

@@ -102,9 +102,11 @@ export default defineComponent({
           swiper.allowSlideNext = true;
       }
       
+    
+      
+
       };
-    //  const ionRouter = useIonRouter();
-    //  router.push('/h5p');
+
 
       return {
         onSlideChange,

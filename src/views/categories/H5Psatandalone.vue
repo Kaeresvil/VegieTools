@@ -24,8 +24,6 @@ IonPage
     },
 data(){
 return{}
-},
-  methods: {
 }, mounted(){
   
 const player1Options = {
@@ -43,7 +41,7 @@ const player1Options = {
 const player1 = new H5P(document.getElementById('h5p-container'), player1Options);
 
 player1.then(() => {
-  return new H5P(document.getElementById('h5p-container-2'), player2Options);
+ // return new H5P(document.getElementById('h5p-container-2'), player2Options);
 }).then(() => {
   // do stuff
 })

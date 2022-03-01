@@ -165,8 +165,8 @@ export default {
     width: 55%;
     height: 200px;
     border: 1px solid rgb(87, 87, 87);
-    background-color: #6b6b6b;
-     opacity: 0.75;
+    background-color: #161616;
+    opacity: 0.85;
     z-index: 1;
     padding: 0 5px 0 5px;
 }
@@ -240,7 +240,7 @@ ion-button{
 /* CSS for the Menu Container Transition */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 
 .fade-enter-from,

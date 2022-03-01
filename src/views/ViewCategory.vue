@@ -18,21 +18,21 @@
 
     <!-- slide for HomePage -->
         <swiper-slide class="page1"> 
-      <ion-img class="vegetable" src="../../assets/vegetable/tarong.png"></ion-img>
+      <ion-img @click="tarong" class="vegetable" src="../../assets/vegetable/tarong.png"></ion-img>
        <h1>Eggplant</h1>
        <h3>(Tarong)</h3>
         </swiper-slide>
 
     <!-- slide for HomePage -->
         <swiper-slide class="page1">
-       <ion-img class="vegetable" src="../../assets/vegetable/sitao.png"></ion-img>
+       <ion-img @click="utong" class="vegetable" src="../../assets/vegetable/sitao.png"></ion-img>
        <h1>Pole Sitao</h1>
        <h3>(Utong)</h3>
         </swiper-slide>
 
     <!-- slide for HomePage -->
         <swiper-slide class="page1">
-    <ion-img class="vegetable" src="../../assets/vegetable/Okra.png"></ion-img>
+    <ion-img @click="okra" class="vegetable" src="../../assets/vegetable/Okra.png"></ion-img>
        <h1>Okra</h1>
        <h3>(Okra)</h3>
         </swiper-slide>
@@ -56,7 +56,6 @@
         <swiper-slide>
       <p>Slide 8</p>
         </swiper-slide> 
-       <div class="swiper-pagination"></div>
       </swiper>
 
       <Transition name="fade">  
@@ -64,8 +63,8 @@
         <ion-icon @click="menuBack" class="bckbtn" src="../../assets/svg/cross-circle.svg"></ion-icon>
         <div><h4>Select Language</h4></div>
 
-        <div class="language">English</div>
-        <div class="language">Iloco</div>
+        <div @click="englishbtn" class="language">English</div>
+        <div @click="ilocobtn" class="language">Iloco</div>
       </div>
        </Transition>
       
@@ -73,7 +72,8 @@
 <script>
 import { defineComponent } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import {  A11y, Pagination } from 'swiper';
+import { A11y, Pagination } from 'swiper';
+
 
 
 import 'swiper/css';
@@ -103,11 +103,13 @@ export default defineComponent({
       }
       
       };
+    //  const ionRouter = useIonRouter();
+    //  router.push('/h5p');
 
       return {
         onSlideChange,
         modules: [Pagination, A11y]
-        
+      
       };
 
 
@@ -120,9 +122,26 @@ export default defineComponent({
   }, methods:{
       paria(swiper){
            this.hidelang = true;
-          swiper.allowSlideNext = false;
+      },
+      utong(swiper){
+           this.hidelang = true;
+      },
+      okra(swiper){
+           this.hidelang = true;
+      },
+      tarong(swiper){
+           this.hidelang = true;
       },
       menuBack(){
+           this.hidelang = false;
+      },
+      englishbtn(){
+        this.$router.push("/h5p");
+           this.hidelang = false;
+      },
+      ilocobtn(){
+        const num = 1;
+        this.$router.push("/background");
            this.hidelang = false;
       },
      
@@ -182,7 +201,7 @@ ion-icon{
 .slidePage{
     position: absolute;
     z-index: 0;
-     height: calc(100vh - 290px);
+    height: calc(100vh - 290px);
     width: 100vw;
 }
 .page1{
@@ -208,7 +227,7 @@ h4{
    font-size: 40px;
    font-weight:600;
    color: white;
-   padding-top: 8%;
+   padding-top: 10%;
 }
 .vegetable{
   width: 90%;
@@ -217,5 +236,16 @@ h4{
   margin-right: auto;
 }
 
+/* CSS for the Menu Container Transition */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
 
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+/* 
+End of transition */
 </style>

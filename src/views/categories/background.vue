@@ -33,7 +33,14 @@
        
        <div class="content">
   
-   <H5Pstandalone/>
+         <H5Pstandalone/>
+
+         <div v-if="hideNav" class="navigation">
+
+              <div class="backMore"><ion-icon @click="backMore" src="../../assets/svg/cross.svg"></ion-icon></div>
+         </div>
+              <div v-if="hideShowMoreBtn" class="showMore"><ion-icon @click="showMore" src="../../assets/svg/plus.svg"></ion-icon></div>
+         
 
        </div><!-- end of content div -->
 
@@ -83,6 +90,8 @@ export default {
           hideCat: false,
           hideCon: true,
           hideAbout: false,
+          hideNav: false,
+          hideShowMoreBtn: true,
       }
   }, methods:{
       menuClicked(){
@@ -108,6 +117,14 @@ export default {
       },
       backClick(){
         this.$router.push("/slider");
+      },
+      showMore(){
+         this.hideNav = true;
+         this.hideShowMoreBtn = false;
+      },
+      backMore(){
+         this.hideNav = false;
+         this.hideShowMoreBtn = true;
       },
   }
 }
@@ -157,8 +174,8 @@ export default {
     width: 55%;
     height: 200px;
     border: 1px solid rgb(87, 87, 87);
-    background-color: #6b6b6b;
-     opacity: 0.75;
+    background-color: #161616;
+    opacity: 0.85;
     z-index: 1;
     padding: 0 5px 0 5px;
 }
@@ -230,6 +247,48 @@ ion-button{
     background: none;
 }
 
+.navigation{
+   border: 1px solid black;
+  position: absolute;
+  width: 90%;
+  height: 65%;
+  top: 55%;  
+  left: 50%; 
+  transform: translate(-50%, -50%);                                 
+  background-color: #000000;
+  opacity: 0.92;
+  z-index: 1;
+  border-radius: 20px 20px;
+}
+
+.backMore{
+    position: absolute;
+    border-radius: 50px 50px;
+    width: 70px;
+    height: 70px;
+    right: 0;
+    bottom: -25px;
+     z-index: 1;
+     background-color: #0c4b05;
+     text-align: center;
+     padding-top: 18px;
+
+   
+}
+.showMore{
+    position: absolute;
+    border-radius: 50px 50px;
+    width: 70px;
+    height: 70px;
+    right: 15px;
+    bottom: 35px;
+     z-index: 1;
+     background-color: #0c4b05;
+     text-align: center;
+     padding-top: 18px;
+
+   
+}
 /* CSS for the Menu Container Transition */
 .fade-enter-active,
 .fade-leave-active {

@@ -1,4 +1,5 @@
 <template >
+<ion-page>
     <h2>Category</h2>
 
      <swiper class="slidePage"
@@ -58,7 +59,7 @@
         </swiper-slide> 
       </swiper>
 
-      <Transition name="fade">  
+      <!-- <Transition name="fade">  
       <div v-if="hidelang" class="select-language">
         <ion-icon @click="menuBack" class="bckbtn" src="../../assets/svg/cross-circle.svg"></ion-icon>
         <div><h4>Select Language</h4></div>
@@ -66,11 +67,12 @@
         <div @click="englishbtn" class="language">English</div>
         <div @click="ilocobtn" class="language">Iloco</div>
       </div>
-       </Transition>
-      
+       </Transition> -->
+   </ion-page>   
 </template>
 <script>
 import { defineComponent } from 'vue';
+import {  IonPage } from '@ionic/vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { A11y, Pagination } from 'swiper';
 
@@ -86,6 +88,8 @@ export default defineComponent({
   components: { 
     Swiper,
     SwiperSlide,
+   
+
 },
     setup() {
       
@@ -102,11 +106,7 @@ export default defineComponent({
           swiper.allowSlideNext = true;
       }
       
-    
-      
-
       };
-
 
       return {
         onSlideChange,
@@ -122,17 +122,19 @@ export default defineComponent({
           hidelang: false,
       }
   }, methods:{
-      paria(swiper){
+      paria(){
+           this.hidelang = true;
+           this.$router.push("/background2");
+      },
+      utong(){
            this.hidelang = true;
       },
-      utong(swiper){
+      okra(){
            this.hidelang = true;
       },
-      okra(swiper){
+      tarong(){
            this.hidelang = true;
-      },
-      tarong(swiper){
-           this.hidelang = true;
+          this.$router.push("/background");
       },
       menuBack(){
            this.hidelang = false;
@@ -142,7 +144,6 @@ export default defineComponent({
            this.hidelang = false;
       },
       ilocobtn(){
-        const num = 1;
         this.$router.push("/background");
            this.hidelang = false;
       },
@@ -216,6 +217,7 @@ h1{
    font-size: 35px;
    font-weight:600;
    padding-bottom: 3%;
+   color:black;
 }
 
 h2{
@@ -223,6 +225,7 @@ h2{
   padding-top: 10%;
   font-size: 60px;
   padding-bottom: 30px;
+   color:black;
 }
 h4{
    font-family: 'Bebas Neue', sans-serif;
@@ -230,6 +233,7 @@ h4{
    font-weight:600;
    color: white;
    padding-top: 10%;
+   
 }
 .vegetable{
   width: 90%;

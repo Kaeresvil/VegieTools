@@ -1,7 +1,7 @@
 <template>
 <ion-page>
   <ion-content>
-  <div style="width:100%;" id="h5p-container"></div>
+  <div id="h5p-container"></div>
  </ion-content>
   </ion-page>
 </template>
@@ -41,5 +41,7 @@ new H5P(el, options);
 
 
 <style scoped>
-
+#h5p-container{
+  max-width: 100%;
+}
 </style>

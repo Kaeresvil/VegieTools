@@ -2,6 +2,7 @@
 <ion-page>
   <ion-content>
  <div class="main-container">
+     
        <div class="header">
            <div>
              <ion-img class="logo1" src="../../assets/veg.png"></ion-img>
@@ -30,6 +31,10 @@
              </div><!-- end of menu container -->
              </Transition>
        </div><!-- end of liner div -->
+
+          <div class="Catheader">
+            <h2>Bitter Gourd</h2>
+        </div>
        
        <div class="content">
   
@@ -136,6 +141,23 @@ export default {
     margin: 0;
     box-sizing: border-box;
 }
+.Catheader{
+  border-radius: 10px 10px;
+  background-color: #ffffffe3;
+  color: rgb(3, 3, 3);
+  width: 95%;
+  height: 60px;
+  transform: translate(+2.5%, +5px);
+    
+}
+h2{
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  color:rgb(36, 36, 36);
+  font-weight:1000;
+  text-align: center;
+  padding:15px 0 5px 10px;
+}
 .main-container{
   position: fixed;
   width: 100%;
@@ -146,6 +168,7 @@ export default {
 .content{
     height: calc(100vh - 147px);
     position: relative;
+    margin-top: 3%;
 }
 .header{
     display:flex;
@@ -252,7 +275,7 @@ ion-button{
   position: absolute;
   width: 90%;
   height: 65%;
-  top: 55%;  
+  top: 43%;  
   left: 50%; 
   transform: translate(-50%, -50%);                                 
   background-color: #000000;
@@ -281,7 +304,7 @@ ion-button{
     width: 70px;
     height: 70px;
     right: 15px;
-    bottom: 35px;
+    bottom: 90px;
      z-index: 1;
      background-color: #0c4b05;
      text-align: center;

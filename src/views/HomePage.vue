@@ -2,51 +2,45 @@
    <div class="main-container">
        <div class="header">
            <div>
-             <ion-img class="logo1" src="../../assets/veg.png"></ion-img>
+             <ion-img class="logo1" src="../../assets/logoW.png"></ion-img>
             </div>  <!--end of logohead -->
 
              <div>
              <h6>VegieTools</h6>
              </div>
-            <div v-if="show">
-             <ion-icon @click="menuClicked" class="menubtn" src="../../assets/svg/menu-burger.svg"></ion-icon>
-            </div>
-            <div v-else>
-             <ion-icon @click="menuBack" class="menubtn" src="../../assets/svg/cross-circle.svg"></ion-icon>
-            </div>
        </div><!-- end of header div -->
        <div class="liner">
-           <Transition name="fade"> 
-
-            <div v-if="hide" class="menu-container">
-               <div @click="SelfTest" class="grid-list">
-                   <ion-icon class="self" src="../../assets/svg/document-signed.svg"></ion-icon><h1>Self-Test</h1>
-               </div>
-               <div @click="ExitApps" class="grid-list">
-                  <ion-icon class="power" src="../../assets/svg/power.svg"></ion-icon><h1>Exit</h1>
-               </div>
-             </div><!-- end of menu container -->
-             </Transition>
        </div><!-- end of liner div -->
        
        <div class="content">
            <div v-if="hideCon">
            <HomeContent/>
            </div>
+             <Transition name="fade"> 
              <div v-if="hideCat" class="viewCategory">
+              
                 <ViewCategory/>
+               
             </div>
-             <div v-if="hideAbout" class="viewCategory">
+             </Transition>
+
+             <Transition name="fade"> 
+             <div v-if="hideAbout" class="about">
                 <About/>
             </div>
+              </Transition>
        </div><!-- end of content div -->
 
       
 
-       <div class="footer">
-           <div class="grid-item">
-                <ion-icon @click="aboutClick" class="footerbtn" src="../../assets/svg/info.svg"></ion-icon>
+       <div  v-if="hideFooter" class="footer">
+           <div v-if="hideAbout" class="grid-item">
+                <ion-icon  @click="aboutClick" class="footerbtn" src="../../assets/svg/info.svg"></ion-icon>
                  <p  @click="aboutClick" >About</p>
+            </div>
+           <div v-if="hideClick" class="grid-item">
+                <ion-icon @click="backClick" class="footerbtn" src="../../assets/svg/arrowBack.svg"></ion-icon>
+                 <p  @click="backClick" >Back</p>
             </div>
             <div class="grid-item">
                 <ion-icon @click="homeClick"  class="footerbtn" src="../../assets/svg/home.svg"></ion-icon>
@@ -85,7 +79,9 @@ export default {
           hide: false,
           hideCat: false,
           hideCon: true,
-          hideAbout: false,
+          hideAbout: true,
+          hideClick: false,
+          hideFooter: true,
       }
   }, methods:{
       menuClicked(){
@@ -105,17 +101,24 @@ export default {
       categoryClick(){
         this.hideCat = true;
         this.hideCon = false;
-          this.hideAbout = false;
+        this.hideAbout = false;
+        this.hideClick = true;
+        this.hideFooter = false;
 
       },
       homeClick(){
           this.hideCat = false;
         this.hideCon = true;
+         this.hideAbout = true;
+        this.backClick = false;
       },
       aboutClick(){
           this.hideAbout = true;
         this.hideCon = false;
         this.hideCat = false;
+      },
+      backClick(){
+        this.hideCat = true;
       },
   }
   

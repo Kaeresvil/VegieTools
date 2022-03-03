@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue'
+import FooterPage from '../views/footer.vue'
 import CateGory from '../views/ViewCategory.vue'
 import Splash from '../views/Splash.vue'
 import SliderPage from '../views/slider.vue'
@@ -25,6 +26,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/home',
     name: 'Home',
     component: HomePage
+  }, {
+  
+    path: '/footer',
+    name: 'Footer',
+    component: FooterPage
   }, {
     path: '/splash',
     name: 'SplashLoader',

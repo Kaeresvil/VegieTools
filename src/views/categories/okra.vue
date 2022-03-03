@@ -1,7 +1,9 @@
 <template>
 <ion-page>
   <ion-content>
+
   <div style="width:100%;" id="h5p-container"></div>
+ 
  </ion-content>
   </ion-page>
 </template>
@@ -61,6 +63,7 @@ body{
     font-size: 25px;
     margin: 20px;
 }
+
 .main-container{
   width: auto;
   height: 100%;

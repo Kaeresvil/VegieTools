@@ -4,87 +4,31 @@
    <div class="Catheader">
      <h2 v-if="catHeader" >Vegetables</h2>
      <h2 v-if="catHeader2">Natnateng</h2>
-    <h3 @click="iloco" >Iloco</h3>
-    <div v-if="ilocoliner" class="ilocoliner"></div>
-    <h3 @click="english">English</h3>
-     <div v-if="englishliner" class="engliner"></div>
+
+      <ion-toggle class="lang" color="dark" value="pepperoni" @click="setLanguage"></ion-toggle>
    </div>
 
   
  <!-- container grid for english vegetable -->
-  <div v-if="EnglishGrid" class="vegGrid">
- 
-    <div @click="Bitter" class="vegetableList">
-      <ion-img src="../../assets/vegetable/paria.jpg"></ion-img>
-      <h1>Bitter Gourd</h1>
+  <div v-if="EnglishGrid" class="vegGrid" >
+    <div v-for="(plants, index) in englishPlants" :key="index">
+        <div @click="viewDetails(plants.method)" class="vegetableList">
+          <ion-img :src="plants.src"></ion-img>
+          <h1>{{plants.title}}</h1>
+        </div>
     </div>
-
-    <div @click="Eggplant" class="vegetableList"> 
-      <ion-img src="../../assets/vegetable/tarong.png"></ion-img>
-       <h1>Eggplant</h1>
-      </div>
-
-    <div @click="okraEng" class="vegetableList">
-       <ion-img src="../../assets/vegetable/okra.png"></ion-img>
-       <h1>Okra</h1>
-    </div>
-
-    <div @click="papayaEng" class="vegetableList">
-       <ion-img src="../../assets/vegetable/papaya.png"></ion-img>
-       <h1>Papaya</h1>
-    </div>
-    <div @click="Sitao" class="vegetableList">
-       <ion-img src="../../assets/vegetable/sitao.png"></ion-img>
-       <h1>Pole Sitao</h1>
-    </div>
-    <div @click="Squash" class="vegetableList">
-       <ion-img src="../../assets/vegetable/karabasa.png"></ion-img>
-       <h1>Squash</h1>
-    </div>
-    <div @click="Tomato" class="vegetableList">
-       <ion-img src="../../assets/vegetable/kamatis.png"></ion-img>
-       <h1>Tomato</h1>
-    </div>
+    
   </div>
 
 <!-- container grid for iloco vegetable -->
 <Transition name="fade"> 
   <div v-if="IlocoGrid" class="vegGridIloco">
 
-    <div @click="paria" class="vegetableListiloco">
-      <ion-img src="../../assets/vegetable/paria.jpg"></ion-img>
-      <h1>Paria</h1>
-    </div>
-
-    <div @click="tarong" class="vegetableListiloco"> 
-      <ion-img src="../../assets/vegetable/tarong.png"></ion-img>
-       <h1>Tarong</h1>
-      </div>
-
-    <div @click="okra" class="vegetableListiloco">
-       <ion-img src="../../assets/vegetable/okra.png"></ion-img>
-       <h1>Okra</h1>
-    </div>
-
-    <div @click="bawang" class="vegetableListiloco">
-       <ion-img src="../../assets/vegetable/bawang.png"></ion-img>
-       <h1>Bawang</h1>
-    </div>
-    <div @click="papaya" class="vegetableListiloco">
-       <ion-img src="../../assets/vegetable/papaya.png"></ion-img>
-       <h1>Papaya</h1>
-    </div>
-    <div @click="utong" class="vegetableListiloco">
-       <ion-img src="../../assets/vegetable/sitao.png"></ion-img>
-       <h1>Utong</h1>
-    </div>
-    <div @click="karabasa" class="vegetableListiloco">
-       <ion-img src="../../assets/vegetable/karabasa.png"></ion-img>
-       <h1>Karabasa</h1>
-    </div>
-    <div @click="kamatis" class="vegetableListiloco">
-       <ion-img src="../../assets/vegetable/kamatis.png"></ion-img>
-       <h1>Kamatis</h1>
+      <div v-for="(plants, index) in ilocoPlants" :key="index">
+        <div @click="viewDetails(plants.method)" class="vegetableList">
+          <ion-img :src="plants.src"></ion-img>
+          <h1>{{plants.title}}</h1>
+        </div>
     </div>
   </div>
 </Transition>
@@ -93,9 +37,9 @@
   <!-- Content Div -->
  
        <div class="contents">
-         <div v-if="okraEngSelected" class="selectContents"> 
-              <okraH5P/>
-         </div>
+   <div  class="selectContents"> 
+              <okraH5P v-if="okraEngSelected"/>
+  </div>
       
          <div v-if="EggplantSelect" class="selectContents"> 
               <Eggplant/>
@@ -147,7 +91,7 @@
 </template>
 <script>
 import { defineComponent } from 'vue';
-import {IonImg, } from '@ionic/vue';
+import {IonImg,IonToggle } from '@ionic/vue';
 import okraH5P from './categories/okra.vue'
 import Eggplant from './categories/H5Psatandalone.vue'
 
@@ -156,12 +100,95 @@ export default defineComponent({
      name: 'ViewCategory',
   components: { 
     IonImg,
+    IonToggle,
      okraH5P,
      Eggplant,
      
 },data(){
       return{
         // for header
+        englishPlants:[
+          {
+            title:'Bitter Gourd',
+            src:'../../assets/vegetable/paria.jpg',
+            method:'Bitter'
+            },
+            {
+            title:'Eggplant',
+            src:'../../assets/vegetable/tarong.jpg',
+            method:'EggplantSelect'
+            },
+            {
+            title:'Okra',
+            src:'../../assets/vegetable/okra.jpg',
+            method:'okraEngSelected'
+            },   
+            {
+            title:'Papaya',
+            src:'../../assets/vegetable/papaya.jpg',
+            method:'okraEngSelected'
+            },
+            {
+            title:'Pole Sitao',
+            src:'../../assets/vegetable/sitao.jpg',
+            method:'okraEngSelected'
+            },
+            {
+            title:'Squash',
+            src:'../../assets/vegetable/karabasa.jpg',
+            method:'okraEngSelected'
+            },
+            {
+            title:'Tomato',
+            src:'../../assets/vegetable/kamatis.jpg',
+            method:'okraEngSelected'
+            },
+            ],
+
+        ilocoPlants:[
+          {
+            title:'Paria',
+            src:'../../assets/vegetable/paria.jpg',
+            method:'Bitter'
+            },
+            {
+            title:'Tarong',
+            src:'../../assets/vegetable/tarong.jpg',
+            method:'EggplantSelect'
+            },
+            
+            {
+            title:'Okra',
+            src:'../../assets/vegetable/okra.jpg',
+            method:'okraEngSelected'
+            }, 
+            {
+            title:'Bawang',
+            src:'../../assets/vegetable/bawang.jpg',
+            method:'EggplantSelect'
+            },  
+            {
+            title:'Papaya',
+            src:'../../assets/vegetable/papaya.jpg',
+            method:'okraEngSelected'
+            },
+            {
+            title:'Utong',
+            src:'../../assets/vegetable/sitao.jpg',
+            method:'okraEngSelected'
+            },
+            {
+            title:'Karabasa',
+            src:'../../assets/vegetable/karabasa.jpg',
+            method:'okraEngSelected'
+            },
+            {
+            title:'Kamatis',
+            src:'../../assets/vegetable/kamatis.jpg',
+            method:'okraEngSelected'
+            },
+            ],
+
           catHeader: true,
           catHeader2: false,
 
@@ -178,6 +205,7 @@ export default defineComponent({
           hideFooter: true,
 
         //for liner language
+        isEnglish: true,
           englishliner: true,
           ilocoliner: false,
         //for grid
@@ -185,8 +213,28 @@ export default defineComponent({
           EnglishGrid: true,
       }
   }, methods:{
+    viewDetails(method){
+            this[method] = true;
+           //For Footer and the grid and navigation
+           this.EnglishGrid = false;
+           this.hideAbout = false;      
+           this.hideClick = true;  
+           this.hideShowMoreBtn = true;  
+    },
     // selecting language
-     iloco(){
+    setLanguage(){
+      if (this.isEnglish) {
+        //call method for iloco
+        this.language();
+        this.isEnglish = false;
+      } else {
+        this.english();
+        this.isEnglish = true;
+      }
+      console.log(this.isEnglish);
+    },
+
+     language(){
            this.catHeader = false;
            this.catHeader2 = true;
            this.englishliner = false;
@@ -197,6 +245,7 @@ export default defineComponent({
 
             this.okraEngSelected = false;
             this.EggplantSelect = false;
+         // console.log("clcick")
       }, 
       english(){
            this.catHeader = true;
@@ -206,77 +255,6 @@ export default defineComponent({
 
            this.IlocoGrid = false;
            this.EnglishGrid = true;
-      },
-  // selecting vegetable iloco
-      paria(){
-           this.$router.push("/background2");
-      },
-      tarong(){
-          console.log("Clicked")
-      },
-      okra(){
-          console.log("Clicked")
-      },
-      bawang(){
-          console.log("Clicked")
-         
-      },
-      papaya(){
-          console.log("Clicked")
-         
-      },
-      utong(){
-          console.log("Clicked")
-        
-      },
-      karabasa(){
-          console.log("Clicked")
-        
-      },
-      kamatis(){
-          console.log("Clicked")
-        
-      },
-
-  // selecting vegetable english
-      Bitter(){
-       console.log("Clicked")
-      },
-      Eggplant(){
-           this.EggplantSelect = true;
-           //For Footer and the grid and navigation
-           this.EnglishGrid = false;
-           this.hideAbout = false;      
-           this.hideClick = true;  
-           this.hideShowMoreBtn = true;  
-      },
-      okraEng(){
-           this.okraEngSelected = true;
-           //For Footer and the grid and naviagtion
-           this.EnglishGrid = false;
-           this.hideAbout = false;      
-           this.hideClick = true;      
-           this.hideShowMoreBtn = true;      
-      },
-      Garlic(){
-          console.log("Clicked")
-        
-      },
-      papayaEng(){
-          console.log("Clicked")
-        
-      },
-      Sitao(){
-          console.log("Clicked")
-        
-      },
-      Squash(){
-          console.log("Clicked")
-        
-      },
-      Tomato(){
-          console.log("Clicked")
-        
       },
 
       // selecting language
@@ -289,10 +267,10 @@ export default defineComponent({
            this.hideClick = false;
            this.hideAbout = true;
             this.hideShowMoreBtn = false;  
-         this.$router.push("/slider");
+        //  this.$router.push("/slider");
       },
       homeClick(){
- console.log("Clicked")
+        console.log("Clicked")
         
       },
       categoryClick(){
@@ -341,6 +319,13 @@ body{
   box-shadow: 6px 6px rgb(141, 141, 141);      
   
 }
+ion-toggle{
+  width: 51px;
+height: 31px;
+float: right;
+margin:20px 10px 0 0;
+
+}
 .engliner{
   border: 1px solid rgb(124, 124, 124);
   background-color: gold;
@@ -368,9 +353,6 @@ h3{
   font-weight:800;
   float: right;
   padding:20px 7px 5px 7px;
-}
-h3:visited{
-   border-bottom: 3px solid gold;  
 }
 h2{
   font-family: 'Barlow Condensed', sans-serif;
@@ -424,14 +406,12 @@ h1{
   text-align: center;
 }
 ion-img{
-  width:auto;
   height: 100px;
 }
-
 .selectContents{
     height: calc(90vh - 142px);
-    width: 99vw;
-    position: fixed;
+    width: 100vw;
+    position: relative;
     margin-top: 4%;
     /* border: 3px solid red; */
 }

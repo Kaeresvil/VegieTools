@@ -26,7 +26,12 @@ IonPage
 data(){
 return{}
 }, mounted(){
-  const el = document.getElementById('h5p-container');
+//  this.$refs["h5p-container"].remove()
+//   this.h5pMount();
+},
+methods: {
+  h5pMount(){
+    const el = document.getElementById('h5p-container');
 const options = {
     h5pJsonPath: '../workspace/Okra',
     frameJs: '../dist/frame.bundle.js',
@@ -38,6 +43,7 @@ const options = {
 };
 
 new H5P(el, options);
+  }
 }
 
 };

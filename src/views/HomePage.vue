@@ -38,7 +38,7 @@
                 <ion-icon  @click="aboutClick" class="footerbtn" src="../../assets/svg/info.svg"></ion-icon>
                  <p  @click="aboutClick" >About</p>
             </div>
-           <div v-if="hideClick" class="grid-item">
+           <div v-if="hideBack" class="grid-item">
                 <ion-icon @click="backClick" class="footerbtn" src="../../assets/svg/arrowBack.svg"></ion-icon>
                  <p  @click="backClick" >Back</p>
             </div>
@@ -102,15 +102,15 @@ export default {
         this.hideCat = true;
         this.hideCon = false;
         this.hideAbout = false;
-        this.hideClick = true;
-        this.hideFooter = false;
+        this.hideBack = true;
+
 
       },
       homeClick(){
           this.hideCat = false;
         this.hideCon = true;
          this.hideAbout = true;
-        this.backClick = false;
+        this.hideBack = false;
       },
       aboutClick(){
           this.hideAbout = true;
@@ -119,6 +119,9 @@ export default {
       },
       backClick(){
         this.hideCat = true;
+        this.hideBack = false;
+         this.$router.push("/slider");
+
       },
   }
   

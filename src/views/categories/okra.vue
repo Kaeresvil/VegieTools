@@ -10,15 +10,13 @@
 
 <script>
    import { H5P } from 'h5p-standalone'; // ES6
-// const { H5P } = require('h5p-standalone'); AMD
-// const { H5P } = 'H5PStandalone'; // object destructuring
 import { IonContent, IonPage } from '@ionic/vue';
 
 export default {
     name: 'okraH5P',
-    props:{
-      activeIndex: Number
-    },
+    props:[
+      "englishPlants"
+    ],
     components: {
 IonContent, 
 IonPage 
@@ -27,7 +25,7 @@ data(){
 return{}
 }, mounted(){
 //  this.$refs["h5p-container"].remove()
-//   this.h5pMount();
+  this.h5pMount();
 },
 methods: {
   h5pMount(){

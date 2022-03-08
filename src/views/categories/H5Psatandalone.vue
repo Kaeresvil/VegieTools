@@ -13,18 +13,23 @@ import { IonContent, IonPage } from '@ionic/vue';
 export default {
     name: 'H5Pstandalone',
     props:{
-      activeIndex: Number
+      content: String
     },
     components: {
 IonContent, 
 IonPage 
     },
 data(){
-return{}
+return{
+  
+}
 }, mounted(){
+  let link = this.content;
+  console.log(link);
+
   const el = document.getElementById('h5p-container');
 const options = {
-    h5pJsonPath: '../workspace/eggplantHarvest',
+    h5pJsonPath: link,
     frameJs: '../dist/frame.bundle.js',
     frameCss: '../dist/styles/h5p.css',
     fullscreen: false, //enable fullscreen button
@@ -35,6 +40,7 @@ const options = {
 
 new H5P(el, options);
 }
+
 };
 
 </script>

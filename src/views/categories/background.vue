@@ -33,7 +33,7 @@
        
        <div class="content">
   
-         <H5Pstandalone/>
+         <H5Pstandalone v-bind:content="vegeContent"/>
 
          <div v-if="hideNav" class="navigation">
 
@@ -75,8 +75,8 @@ import { IonContent, IonPage } from '@ionic/vue';
 import H5Pstandalone from './H5Psatandalone.vue'
 export default {
      name: 'cateBackground',
-    props:{
-      activeIndex: Number
+  props:{
+      content: String
     },
     components: {
     IonContent, 
@@ -92,8 +92,14 @@ export default {
           hideAbout: false,
           hideNav: false,
           hideShowMoreBtn: true,
+          vegeContent: this.content,
       }
-  }, methods:{
+   
+  },
+  mounted(){
+   console.log(this.content);
+  } ,methods:{
+      
       menuClicked(){
           this.show = !this.show;
           this.hide = true;
@@ -127,6 +133,7 @@ export default {
          this.hideShowMoreBtn = true;
       },
   }
+  
 }
 </script>
 

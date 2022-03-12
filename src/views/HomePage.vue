@@ -16,6 +16,7 @@
            <div v-if="hideCon">
            <HomeContent/>
            </div>
+           
              <Transition name="fade"> 
              <div v-if="hideCat" class="viewCategory">
               
@@ -25,7 +26,7 @@
              </Transition>
 
              <Transition name="fade"> 
-             <div v-if="hideAbout" class="about">
+             <div v-if="hideAboutUs" class="about">
                 <About/>
             </div>
               </Transition>
@@ -33,7 +34,7 @@
 
       
 
-       <div  v-if="hideFooter" class="footer">
+       <div v-if="hideFooter" class="footer">
            <div v-if="hideAbout" class="grid-item">
                 <ion-icon  @click="aboutClick" class="footerbtn" src="../../assets/svg/info.svg"></ion-icon>
                  <p  @click="aboutClick" >About</p>
@@ -64,6 +65,7 @@ import ViewCategory from './ViewCategory.vue'
 import HomeContent from './HomeContent.vue'
 import About from './About.vue'
 
+
 export default {
      name: 'HomePage',
    components: {
@@ -71,57 +73,49 @@ export default {
     IonImg,
     ViewCategory,
     HomeContent,
-    About
+    About,
+
   },
   data(){
       return{
           show: true,
           hide: false,
+          hideFooter: true,
           hideCat: false,
+          hideAboutUs: false,
           hideCon: true,
           hideAbout: true,
           hideClick: false,
-          hideFooter: true,
+          isBackClicked: false,
       }
   }, methods:{
-      menuClicked(){
-          this.show = !this.show;
-          this.hide = true;
-      },
-      menuBack(){
-          this.show = !this.show;
-          this.hide = false;
-      },
-      SelfTest(){
-          console.log("Click Self Test");
-      },
-      ExitApps(){
-          console.log("Click Exit");
-      },
+   
+    
       categoryClick(){
         this.hideCat = true;
+        this.hideFooter = false;
         this.hideCon = false;
         this.hideAbout = false;
         this.hideBack = true;
-
-
       },
       homeClick(){
           this.hideCat = false;
         this.hideCon = true;
-         this.hideAbout = true;
+         this.hideAboutUs = true;
         this.hideBack = false;
       },
       aboutClick(){
-          this.hideAbout = true;
+          this.hideAboutUs = true;
         this.hideCon = false;
         this.hideCat = false;
       },
       backClick(){
         this.hideCat = true;
-        this.hideBack = false;
-         this.$router.push("/slider");
-
+        this.hideBack = true;
+         this.hideAbout = false;
+         this.hideCon= false;
+         this.isBackClicked= true;
+        
       },
   }
   
@@ -135,14 +129,15 @@ export default {
     box-sizing: border-box;
 }
 .main-container{
-  position: relative;
+  position: fixed;
   width: 100%;
   height: 100%;
   background: url("/public/assets/VegieTools.png"); 
   background-size:100% 100%;
 }
 .content{
-    height: 100vh;
+    height: calc(96vh - 151px);
+    position: relative;
 }
 .header{
     display:flex;
@@ -163,19 +158,6 @@ export default {
     width: 65px;
 }
 
-.menu-container{
-    display: grid;
-    grid-template-rows: auto auto;
-    position:absolute;
-    right:0;
-    width: 55%;
-    height: 200px;
-    border: 1px solid rgb(87, 87, 87);
-    background-color: #161616;
-    opacity: 0.85;
-    z-index: 1;
-    padding: 0 5px 0 5px;
-}
 .grid-list{
  border-bottom:1px solid rgb(82, 82, 82);
  padding-top:28px;

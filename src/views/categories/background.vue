@@ -1,5 +1,5 @@
 <template>
-<ion-page>
+<ion-page v-if="hidePage" >
   <ion-content>
  <div class="main-container">
        <div class="header">
@@ -10,30 +10,19 @@
              <div>
              <h6>VegieTools</h6>
              </div>
-            <div v-if="show">
-             <ion-icon @click="menuClicked" class="menubtn" src="../../assets/svg/menu-burger.svg"></ion-icon>
-            </div>
-            <div v-else>
-             <ion-icon @click="menuBack" class="menubtn" src="../../assets/svg/cross-circle.svg"></ion-icon>
-            </div>
        </div><!-- end of header div -->
        <div class="liner">
-           <Transition name="fade"> 
-
-            <div v-if="hide" class="menu-container">
-               <div @click="SelfTest" class="grid-list">
-                   <ion-icon class="self" src="../../assets/svg/document-signed.svg"></ion-icon><h1>Self-Test</h1>
-               </div>
-               <div @click="ExitApps" class="grid-list">
-                  <ion-icon class="power" src="../../assets/svg/power.svg"></ion-icon><h1>Exit</h1>
-               </div>
-             </div><!-- end of menu container -->
-             </Transition>
        </div><!-- end of liner div -->
+       
+          <div class="Catheader">
+            <h2>{{name}}</h2>
+        </div>
+       
        
        <div class="content">
   
-         <H5Pstandalone v-bind:content="vegeContent"/>
+         <H5Pstandalone :content="vegeContent"/>
+      
 
          <div v-if="hideNav" class="navigation">
 
@@ -72,19 +61,27 @@
 
 <script>
 import { IonContent, IonPage } from '@ionic/vue';
-import H5Pstandalone from './H5Psatandalone.vue'
+import H5Pstandalone from './H5Pstandalone.vue'
 export default {
      name: 'cateBackground',
-  props:{
-      content: String
+     props: {
+     iscontent: {
+      type: String,
+      required: true
     },
+     name: {
+      type: String,
+      required: true
+    },
+     },
     components: {
     IonContent, 
     IonPage,
     H5Pstandalone
     },
      data(){
-      return{
+        
+             return{
           show: true,
           hide: false,
           hideCat: false,
@@ -92,28 +89,14 @@ export default {
           hideAbout: false,
           hideNav: false,
           hideShowMoreBtn: true,
-          vegeContent: this.content,
+          isContent: true,
+          vegeContent: this.iscontent,
+          hidePage: true,
       }
-   
-  },
-  mounted(){
-   console.log(this.content);
-  } ,methods:{
-      
-      menuClicked(){
-          this.show = !this.show;
-          this.hide = true;
-      },
-      menuBack(){
-          this.show = !this.show;
-          this.hide = false;
-      },
-      SelfTest(){
-          console.log("Click Self Test");
-      },
-      ExitApps(){
-          console.log("Click Exit");
-      },
+    
+     
+  }
+  ,methods:{
       categoryClick(){
       console.log("Clicked")
 
@@ -122,7 +105,13 @@ export default {
          console.log("Clicked")
       },
       backClick(){
-        this.$router.push("/slider");
+        //   const main = document.getElementById('iscontent');
+        //    main.remove();
+        // this.isContent =false;
+        // this.$router.push("/slider");
+        this.hidePage = false;
+       
+        //  this.$router.push({ name: 'Slider', params: {lastcontent: this.vegeContent }});
       },
       showMore(){
          this.hideNav = true;
@@ -150,8 +139,25 @@ export default {
   background: url("/public/assets/VegieTools.png"); 
   background-size:100% 100%;
 }
+.Catheader{
+  border-radius: 10px 10px;
+  background-color: #ffffffe3;
+  color: rgb(3, 3, 3);
+  width: 95%;
+  height: 30px;
+  transform: translate(+2.5%, +5px);
+  text-align: center;
+  margin-bottom: 10px;    
+}
+h2{
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  color:rgb(36, 36, 36);
+  font-weight:1000;
+  text-align: center;
+}
 .content{
-    height: calc(100vh - 147px);
+    height: calc(96vh - 151px);
     position: relative;
 }
 .header{

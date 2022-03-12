@@ -41,6 +41,7 @@ import 'swiper/css/pagination';
 import '@ionic/vue/css/ionic-swiper.css';
 export default defineComponent({
      name: 'SliderPage',
+  
   components: { 
     Swiper,
     SwiperSlide,

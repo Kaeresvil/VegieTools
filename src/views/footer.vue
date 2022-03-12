@@ -47,14 +47,7 @@ export default {
       ExitApps(){
           console.log("Click Exit");
       },
-      categoryClick(){
-        this.hideCat = true;
-        this.hideCon = false;
-        this.hideAbout = false;
-        this.hideClick = true;
-        this.hideFooter = false;
-
-      },
+     
       homeClick(){
           this.hideCat = false;
         this.hideCon = true;

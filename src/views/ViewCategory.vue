@@ -24,22 +24,22 @@ export default defineComponent({
           {
             title:'Bitter Gourd',
             src:'../../assets/vegetable/paria.jpg',
-            content:'../workspace/English/Bitter Gourd/'
+            content:'../workspace/English/Bitter Gourd/Bitter Gourd Desc'
             },
             {
             title:'Eggplant',
             src:'../../assets/vegetable/tarong.jpg',
-            content:'../workspace/eggplantHarvest'
+            content:'../workspace/English/Eggplant/eggplantHarvest'
             },
             {
             title:'Okra',
             src:'../../assets/vegetable/okra.jpg',
-            content:'../workspace/Okra'
+            content:'../workspace/English/Okra/Okra'
             },   
             {
             title:'Papaya',
             src:'../../assets/vegetable/papaya.jpg',
-            content:'PapayaEnglish'
+            content:'../workspace/English/Papaya/PapayaEnglish'
             },
             {
             title:'Pole Sitao',

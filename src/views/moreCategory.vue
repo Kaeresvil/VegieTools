@@ -4,14 +4,16 @@
             <ion-content
                 :scroll-events="true"
                 >
-           <ul  v-for="(plants, index) in BitterGourd" :key="index">
-              <li @click="viewDetails(plants.title, plants.isback)">{{plants.title}}</li>
+                
+           <ul  v-for='(plants, index) in Okra' :key='index'>
+              <li @click="viewDetails(plants.content ,plants.title)">{{plants.title}}</li>
             </ul>
             </ion-content>
 
               <div class="backMore"><ion-icon @click="backMore" src="../../assets/svg/cross.svg"></ion-icon></div>
 
              </div>
+          
 
 
           
@@ -19,42 +21,47 @@
 <script>
 import { defineComponent } from 'vue';
 
-
 export default defineComponent({
      name: 'moreCategory',
+     props:{
+       vegetable:String
+     },
   components: { 
        
-},data(){
-      return{
-        // for header
-        BitterGourd:[
+},
+mounted(){
+  // console.log(this.vegetableName)
+},
+data(){
+      return{ 
+        // for header  
+        Okra:[
           {
-            isback: 'yes',
-            title:'Land Preparation',
+            title:this.vegetable,
+            content:'../workspace/English/Bitter Gourd/Bitter Gourd Desc'
+            },
+          {
+            title:'Land Preparation and Crop Establishment ',
+            content:'../workspace/English/Bitter Gourd/Land-Preparation-and-Crop-Establishment'
+            },
+          {
+            title:'Integrated Nutrient and Water Management',
+            content:'../workspace/English/Bitter Gourd/Integrated Nutrient'
+            },
+          {
+           title:'Integrated Pest Management',
+            content:'../workspace/English/Bitter Gourd/Fertilizer Application'
+            },
+          {
+             title:'Disease Management',
             content:'../workspace/morecontent/Bitter Gourd'
             },
           {
-            title:'Crop Establishment',
+             title:'Weed Management',
             content:'../workspace/morecontent/Bitter Gourd'
             },
           {
-           title:'Fertilizer Application',
-            content:'../workspace/morecontent/Bitter Gourd'
-            },
-          {
-             title:'Water Management',
-            content:'../workspace/morecontent/Bitter Gourd'
-            },
-          {
-             title:'Fest Management',
-            content:'../workspace/morecontent/Bitter Gourd'
-            },
-          {
-             title:'Insect Fest Management',
-            content:'../workspace/morecontent/Bitter Gourd'
-            },
-          {
-             title:'Harvesting and Post-harvest Practices',
+             title:'Harvesting and Post-harvest Handling',
             content:'../workspace/morecontent/Bitter Gourd'
             },
           
@@ -63,15 +70,16 @@ export default defineComponent({
         ilocoPlants:[
           {
             title:'Paria',
-            src:'../../assets/vegetable/paria.jpg',
-            content:'Paria'
+            content:'../../assets/vegetable/paria.jpg',
             },
          
             ],
 
         // for content and navigation      
           hideNav: true,
-          back: 1,
+          isPass: false,
+          moreContent: null,
+          
         
       }
   }, methods:{
@@ -79,10 +87,14 @@ export default defineComponent({
    
       //for Showmore navigation
       backMore(){
-      this.$emit('backtoShow', this.back);
+      this.$emit('backtoShow');
       },
       viewDetails(content){
-          console.log(content);
+        // this.isPass = true;
+        // this.isBack = 1;
+        // this.moreContent = content;
+        this.$emit('existContent', content);
+          // console.log(content);
       }
      
     }

@@ -15,8 +15,11 @@ export default {
     name: 'H5Pstandalone',
     props:{
      content: String,
+     morecontent: String,
      backButton: Number,
+     morebackButton: Number,
      backclicked: Number,
+
 
     },
     components: {
@@ -28,22 +31,41 @@ return{
     isActive: true,
 }
 }, mounted(){
-  console.log(this.backButton == 1 && this.backclicked == 1 )
-if(this.backButton == 1){
-  this.isActive = true;
-      const el = document.getElementById('h5p-container');
-    const options = {
-    h5pJsonPath: this.content,
-    frameJs: '../dist/frame.bundle.js',
-    frameCss: '../dist/styles/h5p.css',
-    fullscreen: false, //enable fullscreen button
-    frame: true, 
-    copyright: true,
-    icon: true,
-};
 
-new H5P(el, options);
-} else if(this.backButton != 1 && this.backclicked != 1){
+
+if(this.backButton == 1){
+ 
+             this.isActive = true;
+            const el = document.getElementById('h5p-container');
+            const options = {
+            h5pJsonPath: this.content,
+            frameJs: '../dist/frame.bundle.js',
+            frameCss: '../dist/styles/h5p.css',
+            fullscreen: false, //enable fullscreen button
+            frame: true, 
+            copyright: true,
+            icon: true,
+        };
+
+        new H5P(el, options);
+
+
+} if(this.morebackButton == 2 ){
+    this.isActive = true;
+            const el = document.getElementById('h5p-container');
+            const options = {
+            h5pJsonPath: this.morecontent,
+            frameJs: '../dist/frame.bundle.js',
+            frameCss: '../dist/styles/h5p.css',
+            fullscreen: false, //enable fullscreen button
+            frame: true, 
+            copyright: true,
+            icon: true,
+        };
+
+        new H5P(el, options);
+
+}else if(this.backButton != 1 && this.backclicked != 1){
   console.log("inactive");
   this.isActive = false;
 }

@@ -4,7 +4,7 @@
      <h2 v-if="catHeader" >Vegetables</h2>
      <h2 v-if="catHeaderIloco">Natnateng</h2>
 <!-- //select language -->
-      <ion-toggle @click="setLanguage" ></ion-toggle> <label v-if="isEnglish">English</label><label  v-if="isIloco">Iloco</label>
+      <ion-toggle @click="setLanguage" color="dark"></ion-toggle> <label v-if="isEnglish">English</label><label  v-if="isIloco">Iloco</label>
    </div>
 <!-- Vegetable Name -->
     <div v-if="isActive" class="Catheader2">
@@ -23,7 +23,7 @@
         <div  @click="viewDetails(plants.content, plants.title)" class="vegetableList">
           <ion-img :src="plants.src"></ion-img>
           <h1>{{plants.title}}</h1>
-        </div>
+        </div>      
     </div>
  </div>
 
@@ -44,12 +44,12 @@
   
  <VegetableContent v-if="isPass" :selectcontent="vegetableContent" :backclick="isBack" class="content"
   />
-
+ <VegetableContent v-if="isPassMoreContent" :morecontent="moreContent" :morebackclick="ismoreBack" class="content"
+  />
+   <div v-if="showMore" class="showMore"><ion-icon class="iconplus" @click="showMoreBtn(vegetableName)" src="../../assets/svg/plus.svg"></ion-icon>
+ </div>
   
-     <div v-if="showMore" class="showMore"><ion-icon class="iconplus" @click="showMoreBtn" src="../../assets/svg/plus.svg"></ion-icon>
-         </div> 
-
- <MoreView v-if="clickShowMore" v-on:backtoShow="moreContentBack"/>
+ <MoreView v-if="clickShowMore" :vegetable="vegetableTitle" v-on:backtoShow="moreContentBack" v-on:existContent="hideExistContent"/>
   
 <!-- Footer -->
    <div v-if="hideFooter" class="footer">
@@ -69,7 +69,7 @@
             </div>
       </div> <!-- end of footer div -->
 
-   <isBack v-if="isPasstoback" :backclicked="isBack" class="papasali"/>     
+   <isBack v-if="isPasstoback" :backclicked="isBack"  class="papasali"/>     
 </template>
 
 <script>
@@ -101,7 +101,10 @@ isBack,
         return{
             // vegetableContent: null,
             vegetableName: '',
+            vegetableTitle: '',
+            existingMorecontent: '',
             isPass: false,
+            isPassMoreContent: false,
             isPasstoback: false,
             grid: true,
 
@@ -109,8 +112,8 @@ isBack,
             showMore: false,
             clickShowMore: false,
             //switching language
-            ContentisActive: true,
-            isActive: false,
+            ContentisActive: true, ///Header for langauge
+            isActive: false, /// header for Vegetable name
             isEnglish: true,
             catHeader: true,
             catHeaderIloco: false,
@@ -173,12 +176,23 @@ isBack,
         backClick(){
           this.isPasstoback = true;
           this.isPass = false;
+          this.isPassMoreContent = false;
           this.isBack = 0;
           this.grid = true;
           this.ContentisActive = true;
           this.showMore = false;
            this.clickShowMore = false;
           this.isActive = false;
+      },
+        isMoreContent(){
+          this.isPasstoback = true;
+          this.isPass = false;
+          this.isBack = 0;
+          this.grid = false;
+          this.ContentisActive = false;
+          this.showMore = true;
+           this.clickShowMore = true;
+          this.isActive = true;
       },
 
      
@@ -192,16 +206,46 @@ isBack,
       },
   
   // Show More Content Categories
-  showMoreBtn(){
+  showMoreBtn(vegetableName){
     this.clickShowMore = true;
     this.showMore = false;
+     this.isPassMoreContent = false;
+      this.vegetableTitle = vegetableName;
+     this.ExistingMoreContent();
   },
   moreContentBack(){
 this.showMore = true;
 this.clickShowMore = false;
-  }
+
+  },
+hideExistContent(content){
+  this.isMoreContent();
+
+  this.moreContentBack();
+
+  this.isPassMoreContent = true;
+  this.moreContent = content;
+  this.ismoreBack = 2;
+  this.existingMorecontent = content;
+  this.isPasstoback = false;
+  console.log(content)
+},
+
+  ExistingMoreContent(){
+            this.vegetableContent = this.existingMorecontent;
+            this.isPass = true;
+            this.isPasstoback = false;
+            this.isBack = 1;
+            this.showMore = true;
+            this.grid = false;
+            this.ContentisActive = false;
+            this.isActive = true;
+      
+         },
     
     },
+
+
 
 
 }

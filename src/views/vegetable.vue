@@ -8,7 +8,12 @@
    </div>
 <!-- Vegetable Name -->
     <div v-if="isActive" class="Catheader2">
-            <h6>{{vegetableName}}</h6>
+      <div class="head-grid">
+        <h6>{{vegetableName}}</h6>
+      </div>
+      <div class="head-grid">
+          <p class="breadcrumbs"><i>{{breadcrumbs}}</i></p>
+      </div>   
         </div>
 
 
@@ -20,7 +25,7 @@
   <div  v-if="EnglishGrid" class="vegGrid">
 
       <div  v-for="(plants, index) in englishPlants" :key="index">
-        <div  @click="viewDetails(plants.content, plants.title)" class="vegetableList">
+        <div  @click="viewDetails(plants.content, plants.title, plants.id)" class="vegetableList">
           <ion-img :src="plants.src"></ion-img>
           <h1>{{plants.title}}</h1>
         </div>      
@@ -29,7 +34,7 @@
 
      <div v-if="IlocoGrid" class="vegGrid">
       <div  v-for="(plants, index) in ilocoPlants" :key="index">
-        <div  @click="viewDetails(plants.content, plants.title)" class="vegetableList">
+        <div  @click="viewDetails(plants.content, plants.title, plants.id)" class="vegetableList">
           <ion-img :src="plants.src"></ion-img>
           <h1>{{plants.title}}</h1>
         </div>
@@ -46,10 +51,10 @@
   />
  <VegetableContent v-if="isPassMoreContent" :morecontent="moreContent" :morebackclick="ismoreBack" class="content"
   />
-   <div v-if="showMore" class="showMore"><ion-icon class="iconplus" @click="showMoreBtn(vegetableName)" src="../../assets/svg/plus.svg"></ion-icon>
+   <div v-if="showMore" class="showMore"><ion-icon class="iconplus" @click="showMoreBtn(vegetableName, vegetableid)" src="../../assets/svg/plus.svg"></ion-icon>
  </div>
   
- <MoreView v-if="clickShowMore" :vegetable="vegetableTitle" v-on:backtoShow="moreContentBack" v-on:existContent="hideExistContent"/>
+ <MoreView v-if="clickShowMore" :vegetable="vegetableTitle" :id="vegetableid"  v-on:backtoShow="moreContentBack" v-on:existContent="hideExistContent"/>
   
 <!-- Footer -->
    <div v-if="hideFooter" class="footer">
@@ -102,6 +107,8 @@ isBack,
             // vegetableContent: null,
             vegetableName: '',
             vegetableTitle: '',
+            vegetableid: '',
+            breadcrumbs: '',
             existingMorecontent: '',
             isPass: false,
             isPassMoreContent: false,
@@ -160,7 +167,7 @@ isBack,
       },
    
    //////Selecting A vegetable from Grid
-          viewDetails(content, title){
+          viewDetails(content, title, id){
             this.vegetableContent = content;
             this.isPass = true;
             this.isPasstoback = false;
@@ -170,6 +177,8 @@ isBack,
             this.ContentisActive = false;
             this.isActive = true;
             this.vegetableName = title;
+            this.vegetableid = id;
+             this.breadcrumbs = title;
          
          },
         //  backk to vegetable grid
@@ -206,27 +215,30 @@ isBack,
       },
   
   // Show More Content Categories
-  showMoreBtn(vegetableName){
+  showMoreBtn(vegetableName, vegetableid){
     this.clickShowMore = true;
     this.showMore = false;
      this.isPassMoreContent = false;
       this.vegetableTitle = vegetableName;
+      this.vegetableid = vegetableid;
      this.ExistingMoreContent();
   },
+
   moreContentBack(){
 this.showMore = true;
 this.clickShowMore = false;
 
   },
-hideExistContent(content){
-  this.isMoreContent();
 
+hideExistContent(content, title){
+  this.isMoreContent();
   this.moreContentBack();
 
   this.isPassMoreContent = true;
   this.moreContent = content;
   this.ismoreBack = 2;
   this.existingMorecontent = content;
+  this.breadcrumbs = title;
   this.isPasstoback = false;
   console.log(content)
 },
@@ -261,7 +273,7 @@ hideExistContent(content){
 /* switching language */
 .Catheader{
   border-radius: 10px 10px;
-  background-color: #ffffffe3;
+  background-color: #f7f7f7e3;
   color: rgb(3, 3, 3);
   width: 95%;
   height: 70px;
@@ -271,20 +283,32 @@ hideExistContent(content){
 }
 .Catheader2{
   border-radius: 10px 10px;
-  background-color: #ffffffe3;
+  background-color: #f7f7f7e3;
   color: rgb(3, 3, 3);
   width: 95%;
   height: 30px;
   transform: translate(+2.5%, +5px);
-  text-align: center;
-  margin-bottom: 10px;    
+  margin-bottom: 10px;   
+  display: grid;
+  grid-template-columns: auto auto;
+  
 }
+.breadcrumbs{
+  color: black;
+  font-weight:500;
+  font-size: 13px;
+   width: 100%;
+   padding: 7px 0 0 0;
+}
+
 h6{
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 22px;
+  font-size: 16px;
   color:rgb(36, 36, 36);
   font-weight:1000;
-  text-align: center;
+   float: left;
+   width: auto;
+   padding: 3px 0 0 10px;
 }
 ion-toggle{
   width: 51px;
@@ -366,8 +390,9 @@ h1{
    display: grid;
    grid-template-columns: 33% 33% 33%;
     position: fixed;
+    bottom: 0;
     width: 100%;
-    height: 60px;
+    max-height: 60px;
     background-color:#0c4b05;
     justify-items: center;
 }
@@ -391,7 +416,4 @@ p{
 .papasali{
   width: 1%
 }
-
-
-
 </style>

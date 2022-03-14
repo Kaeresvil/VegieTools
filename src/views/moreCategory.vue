@@ -5,7 +5,7 @@
                 :scroll-events="true"
                 >
                 
-           <ul  v-for='(plants, index) in Okra' :key='index'>
+           <ul  v-for='(plants, index) in content' :key='index'>
               <li @click="viewDetails(plants.content ,plants.title)">{{plants.title}}</li>
             </ul>
             </ion-content>
@@ -24,18 +24,21 @@ import { defineComponent } from 'vue';
 export default defineComponent({
      name: 'moreCategory',
      props:{
-       vegetable:String
+       vegetable:String,
+       id:String
      },
   components: { 
        
 },
 mounted(){
   // console.log(this.vegetableName)
+  this.content=this[this.id];
 },
 data(){
       return{ 
         // for header  
-        Okra:[
+        content:null,
+        1:[
           {
             title:this.vegetable,
             content:'../workspace/English/Bitter Gourd/Bitter Gourd Desc'
@@ -50,30 +53,60 @@ data(){
             },
           {
            title:'Integrated Pest Management',
-            content:'../workspace/English/Bitter Gourd/Fertilizer Application'
+            content:'../workspace/English/Bitter Gourd/Integrated-Pest-Management'
             },
           {
              title:'Disease Management',
-            content:'../workspace/morecontent/Bitter Gourd'
+              content:'../workspace/English/Bitter Gourd/Disease-Management'
             },
           {
              title:'Weed Management',
-            content:'../workspace/morecontent/Bitter Gourd'
+              content:'../workspace/English/Bitter Gourd/Weed-management'
             },
           {
              title:'Harvesting and Post-harvest Handling',
-            content:'../workspace/morecontent/Bitter Gourd'
+            content:'../workspace/English/Bitter Gourd/Harvesting-and-Postharvest-handling'
             },
-          
+          {
+             title:'Pre-Test/Self-Test',
+             content:'../workspace/English/Bitter Gourd/Bitter-gourd-pre-test'
+            },
             ],
 
-        ilocoPlants:[
-          {
-            title:'Paria',
-            content:'../../assets/vegetable/paria.jpg',
+        2:[
+         {
+            title:this.vegetable,
+            content:'../workspace/English/Eggplant/Eggplant-Description'
             },
-         
+          {
+            title:'Land Preparation and Crop Establishment ',
+            content:'../workspace/English/Eggplant/Land-Preparation-and-Crop-Establishment'
+            },
+          {
+            title:'Integrated Nutrient and Water Management ',
+            content:'../workspace/English/Eggplant/Integrated-Nutrient-and-Water-Management'
+            },
+          {
+            title:'Integrated Pest Management ',
+            content:'../workspace/English/Eggplant/Land-Preparation-and-Crop-Establishment'
+            },
+          {
+            title:'Harvesting and Post-harvest Handling ',
+            content:'../workspace/English/Eggplant/Harvesting-and-Postharvest-Handling'
+            },
+              {
+             title:'Pre-Test/Self-Test',
+             content:'../workspace/English/Bitter Gourd/Bitter-gourd-pre-test'
+            },
+       
             ],
+            8:[
+              {
+                  title:this.vegetable,
+            content:'../workspace/Iloco/Paria'
+              }
+            ],
+          
 
         // for content and navigation      
           hideNav: true,
@@ -89,12 +122,8 @@ data(){
       backMore(){
       this.$emit('backtoShow');
       },
-      viewDetails(content){
-        // this.isPass = true;
-        // this.isBack = 1;
-        // this.moreContent = content;
-        this.$emit('existContent', content);
-          // console.log(content);
+      viewDetails(content, title){
+        this.$emit('existContent', content, title);
       }
      
     }

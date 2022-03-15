@@ -70,7 +70,7 @@ export default defineComponent({
             id:'8',
             title:'Paria',
             src:'../../assets/vegetable/paria.jpg',
-            content:'../workspace/Iloco/Paria'
+            content:'../workspace/Iloco/Paria/Paria-Desc'
             },
             {
             id:'9',

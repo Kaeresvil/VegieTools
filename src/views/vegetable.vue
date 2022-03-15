@@ -98,8 +98,8 @@ export default {
     components: {
 VegetableContent,
 isBack,
- IonToggle,
- MoreView
+IonToggle,
+MoreView
     },
     data(){
        
@@ -248,7 +248,6 @@ hideExistContent(content, title){
             this.isPass = true;
             this.isPasstoback = false;
             this.isBack = 1;
-            this.showMore = true;
             this.grid = false;
             this.ContentisActive = false;
             this.isActive = true;

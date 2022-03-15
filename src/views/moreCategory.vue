@@ -88,7 +88,7 @@ data(){
             },
           {
             title:'Integrated Pest Management ',
-            content:'../workspace/English/Eggplant/Land-Preparation-and-Crop-Establishment'
+            content:'../workspace/English/Eggplant/Integrated-Pest-Management'
             },
           {
             title:'Harvesting and Post-harvest Handling ',
@@ -103,8 +103,33 @@ data(){
             8:[
               {
                   title:this.vegetable,
-            content:'../workspace/Iloco/Paria'
-              }
+            content:'../workspace/Iloco/Paria/Paria-Desc'
+              },
+              {
+            title:'Panaggisagana iti Pagmulaan ken Wagas ti Panagmula',
+            content:'../workspace/Iloco/Paria/Panangisagana-iti-Pagmulaan-ken-Wagas-ti-Panagmula'
+            },
+              {
+            title:'Panagganagan ken Panagpadanum',
+            content:'../workspace/Iloco/Paria/Panagganagan-ken-Panagpadanum'
+            },
+              {
+            title:'Panangmanehar kadagiti Peste',
+            content:'../workspace/Iloco/Paria/Panangmanehar-kadagiti-Peste'
+            },
+              {
+            title:'Panagmanehar iti Sakit',
+            content:'../workspace/Iloco/Paria/Panagmanehar-iti-Sakit'
+            },
+             {
+            title:'Panangtariwidwid Kadagti Ruot',
+            content:'../workspace/Iloco/Paria/Panangtarawidwid-Kadagiti-Ruot'
+            },
+              {
+            title:'Panagapit ken Panangtaming iti Apit',
+            content:'../workspace/Iloco/Paria/Panagapit-ken-Panangtaming-iti-Apit'
+            },
+        
             ],
           
 

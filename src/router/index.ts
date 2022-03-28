@@ -9,9 +9,6 @@ import Splash from '../views/Splash.vue'
 import SliderPage from '../views/slider.vue'
 import H5pStandalone from '../views/categories/H5Pstandalone.vue'
 import content from '../views/categories/content.vue'
-import CategoriesBackground from '../views/categories/background.vue'
-
-
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -61,12 +58,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/content',
     name: 'vegeContent',
     component: content
-  },  {
-    path: '/background/:iscontent?',
-    name: 'cateBackground',
-    component: CategoriesBackground,
-    props: true
-  }
+  },  
 ]
 
 const router = createRouter({

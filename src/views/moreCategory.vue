@@ -178,7 +178,6 @@ ion-content{
   left: 50%; 
   transform: translate(-50%, -50%);                                 
   background-color: #000000;
-  opacity: 0.96;
   z-index: 1;
   border-radius: 20px 20px;
 }

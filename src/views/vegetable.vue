@@ -47,10 +47,9 @@
 
   <!-- H5P StandAlone Content For Vegetable -->
   
- <VegetableContent v-if="isPass" :selectcontent="vegetableContent" :backclick="isBack" class="content"
+ <VegetableContent v-if="isPass" :selectcontent="vegetableContent"   :num="count" class="content"
   />
- <VegetableContent v-if="isPassMoreContent" :morecontent="moreContent" :morebackclick="ismoreBack" class="content"
-  />
+
    <div v-if="showMore" class="showMore"><ion-icon class="iconplus" @click="showMoreBtn(vegetableName, vegetableid)" src="../../assets/svg/plus.svg"></ion-icon>
  </div>
   
@@ -74,13 +73,12 @@
             </div>
       </div> <!-- end of footer div -->
 
-   <isBack v-if="isPasstoback" :backclicked="isBack"  class="papasali"/>     
+  
 </template>
 
 <script>
 import {IonToggle } from '@ionic/vue';
-import VegetableContent from './categories/content.vue'
-import isBack from './categories/H5Pstandalone.vue'
+import VegetableContent from './categories/H5Pstandalone.vue'
 import MoreView from './moreCategory.vue'
 
 export default {
@@ -97,7 +95,6 @@ export default {
   },
     components: {
 VegetableContent,
-isBack,
 IonToggle,
 MoreView
     },
@@ -111,7 +108,6 @@ MoreView
             breadcrumbs: '',
             existingMorecontent: '',
             isPass: false,
-            isPassMoreContent: false,
             isPasstoback: false,
             grid: true,
 
@@ -128,6 +124,7 @@ MoreView
             IlocoGrid: false,
             EnglishGrid: true,
             hideFooter: true,
+            count: 0,
            
         }
       
@@ -171,7 +168,6 @@ MoreView
             this.vegetableContent = content;
             this.isPass = true;
             this.isPasstoback = false;
-            this.isBack = 1;
             this.showMore = true;
             this.grid = false;
             this.ContentisActive = false;
@@ -179,6 +175,7 @@ MoreView
             this.vegetableName = title;
             this.vegetableid = id;
              this.breadcrumbs = title;
+             this.count = 0;
          
          },
         //  backk to vegetable grid
@@ -203,15 +200,15 @@ MoreView
            this.clickShowMore = true;
           this.isActive = true;
       },
-
-     
       homeClick(){
-        console.log("Clicked")
+  
+           this.$emit('backtoFirstHomePAge');
+        this.hideFooter = false;
+        this.backClick();
         
       },
       categoryClick(){
- 
-        console.log("Clicked")
+          this.backClick();
       },
   
   // Show More Content Categories
@@ -234,12 +231,12 @@ hideExistContent(content, title){
   this.isMoreContent();
   this.moreContentBack();
 
-  this.isPassMoreContent = true;
-  this.moreContent = content;
-  this.ismoreBack = 2;
-  this.existingMorecontent = content;
+  this.isPass = false;
+this.vegetableContent = content;
   this.breadcrumbs = title;
-  this.isPasstoback = false;
+   this.$nextTick(() => {
+        this.isPass = true;
+      });
   console.log(content)
 },
 

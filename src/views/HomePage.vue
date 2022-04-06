@@ -20,7 +20,7 @@
              <Transition name="fade"> 
              <div v-if="hideCat" class="viewCategory">
               
-                <ViewCategory/>
+                <ViewCategory v-on:backtoFirstHomePAge="homepage"/>
                
             </div>
              </Transition>
@@ -97,6 +97,7 @@ export default {
         this.hideCon = false;
         this.hideAbout = false;
         this.hideBack = true;
+        this.hideAboutUs = false;
       },
       homeClick(){
           this.hideCat = false;
@@ -117,6 +118,15 @@ export default {
          this.isBackClicked= true;
         
       },
+      homepage(){
+ this.hideFooter = true;
+     this.hideCat = false;
+        this.hideCon = true;
+        this.hideAbout = true;
+        this.hideBack = false;
+        console.log("Hello");
+      },
+
   }
   
 }

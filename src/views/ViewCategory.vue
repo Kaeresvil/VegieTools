@@ -1,6 +1,6 @@
 <template >
 
-      <vegetable v-bind:englishPlants="englishPlants" v-bind:ilocoPlants="ilocoPlants"/>
+      <vegetable v-bind:englishPlants="englishPlants" v-bind:ilocoPlants="ilocoPlants" v-on:backtoFirstHomePAge="homepage" />
   
    
 </template>
@@ -71,12 +71,6 @@ export default defineComponent({
             title:'Paria',
             src:'../../assets/vegetable/paria.jpg',
             content:'../workspace/Iloco/Paria/Paria-Desc'
-            },
-            {
-            id:'9',
-            title:'Tarong',
-            src:'../../assets/vegetable/tarong.jpg',
-            content:'Tarong'
             },         
             {
             id:'10',
@@ -101,12 +95,6 @@ export default defineComponent({
             title:'Utong',
             src:'../../assets/vegetable/sitao.jpg',
             content:'Utong'
-            },
-            {
-            id:'14',
-            title:'Karabasa',
-            src:'../../assets/vegetable/karabasa.jpg',
-            content:'Karabasa'
             },
             {
             id:'15',

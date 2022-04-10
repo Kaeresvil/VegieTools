@@ -374,7 +374,7 @@ h1{
     width: 60px;
     height: 60px;
     right: 15px;
-    bottom: 0px;
+     bottom: 93px;
     z-index: 1;
     background-color: #0c4b05;
     padding-top: 11px; 

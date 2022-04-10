@@ -23,7 +23,7 @@ export default {
   transform: translate(-50%, -50%);
 }
 h3{
-padding-top:97%;
+padding-top:45%;
 font-size: 78px;
 font-family: 'Barlow Condensed', sans-serif;
 font-weight: 1000;

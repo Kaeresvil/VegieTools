@@ -102,7 +102,7 @@ export default {
       homeClick(){
           this.hideCat = false;
         this.hideCon = true;
-         this.hideAboutUs = true;
+         this.hideAboutUs = false;
         this.hideBack = false;
       },
       aboutClick(){
@@ -145,10 +145,10 @@ export default {
   background: url("/public/assets/VegieTools.png"); 
   background-size:100% 100%;
 }
-.content{
+/* .content{
     height: calc(96vh - 151px);
     position: relative;
-}
+} */
 .header{
     display:flex;
     width: 100%;

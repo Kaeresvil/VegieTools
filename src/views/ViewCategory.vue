@@ -43,25 +43,25 @@ export default defineComponent({
             id:'4',
             title:'Papaya',
             src:'../../assets/vegetable/papaya.jpg',
-            content:'../workspace/English/Papaya/PapayaEnglish'
+            content:'../workspace/English/Papaya/Papaya-Production'
             },
             {
             id:'5',
             title:'Pole Sitao',
             src:'../../assets/vegetable/sitao.jpg',
-            content:'Pole Siato'
+           content:'../workspace/English/Pole Sitao/Pole-Sitao'
             },
             {
             id:'6',
             title:'Squash',
             src:'../../assets/vegetable/karabasa.jpg',
-            content:'Squash'
+            content:'../workspace/English/Squash/Squash-Production'
             },
             {
             id:'7',
             title:'Tomato',
             src:'../../assets/vegetable/kamatis.jpg',
-            content:'Tomato'
+            content:'../workspace/English/Tomato/Tomato-Production'
             },
             ],
 
@@ -73,31 +73,31 @@ export default defineComponent({
             content:'../workspace/Iloco/Paria/Paria-Desc'
             },         
             {
-            id:'10',
+            id:'9',
             title:'Okra',
             src:'../../assets/vegetable/okra.jpg',
-            content:'OkraIloco'
+           content:'../workspace/Iloco/Okra/Okra'
             }, 
             {
-            id:'11',
+            id:'10',
             title:'Bawang',
             src:'../../assets/vegetable/bawang.jpg',
-            content:'Bawang'
+           content:'../workspace/Iloco/Bawang/Bawang/workspace'
             },  
             {
-            id:'12',
+            id:'11',
             title:'Papaya',
             src:'../../assets/vegetable/papaya.jpg',
-            content:'PapayaIloco'
+           content:'../workspace/Iloco/Papaya/Papaya Production/workspace'
             },
             {
-            id:'13',
+            id:'12',
             title:'Utong',
             src:'../../assets/vegetable/sitao.jpg',
             content:'Utong'
             },
             {
-            id:'15',
+            id:'13',
             title:'Kamatis',
             src:'../../assets/vegetable/kamatis.jpg',
             content:'Kamatis'

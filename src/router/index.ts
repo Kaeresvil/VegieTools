@@ -9,9 +9,12 @@ import Splash from '../views/Splash.vue'
 import SliderPage from '../views/slider.vue'
 import H5pStandalone from '../views/categories/H5Pstandalone.vue'
 import content from '../views/categories/content.vue'
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> d77bc79919ff2f507fdcfd471f672862febb39db
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -61,7 +64,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/content',
     name: 'vegeContent',
     component: content
+<<<<<<< HEAD
   },
+=======
+  },  
+>>>>>>> d77bc79919ff2f507fdcfd471f672862febb39db
 ]
 
 const router = createRouter({

@@ -118,6 +118,7 @@ MoreView
             ContentisActive: true, ///Header for langauge
             isActive: false, /// header for Vegetable name
             isEnglish: true,
+            ischeck: false,
             catHeader: true,
             catHeaderIloco: false,
 
@@ -139,11 +140,13 @@ MoreView
         this.iloco();
         this.isEnglish = false;
         this.isIloco = true;
+        this.ischeck = false;
      
       } else {
         this.english();
         this.isEnglish = true;
         this.isIloco = false;
+        this.ischeck = false;
      
       }
     },
@@ -176,19 +179,28 @@ MoreView
             this.vegetableid = id;
              this.breadcrumbs = title;
              this.count = 0;
+            this.ischeck = true;
          
          },
         //  backk to vegetable grid
         backClick(){
-          this.isPasstoback = true;
-          this.isPass = false;
-          this.isPassMoreContent = false;
-          this.isBack = 0;
-          this.grid = true;
-          this.ContentisActive = true;
-          this.showMore = false;
-           this.clickShowMore = false;
-          this.isActive = false;
+
+                    this.isPasstoback = true;
+                    this.isPass = false;
+                    this.isPassMoreContent = false;
+                    this.isBack = 0;
+                    this.grid = true;
+                    this.ContentisActive = true;
+                    this.showMore = false;
+                    this.clickShowMore = false;
+                    this.isActive = false;
+                    
+          
+                     if (this.ischeck == false) {
+                  this.homeClick()
+     
+              }
+                  
       },
         isMoreContent(){
           this.isPasstoback = true;
@@ -333,7 +345,7 @@ h2{
 /* vegetable grid */
 ion-content{ 
    --background: transparent;
-  height: calc(90vh - 128px);
+  height: calc(100vh - 210px);
  }
 
 .vegGrid{
@@ -347,7 +359,7 @@ ion-content{
 }
 .vegetableList{
   background-color: #ffffffe3;
-  box-shadow: 5px 5px rgba(141, 141, 141, 0.719); 
+  box-shadow: 5px 5px rgba(168, 168, 168, 0.719); 
   border: 1px solid rgba(63, 63, 63, 0.603);
   border-radius: 10px 10px;
   padding: 10px 0 10px 0;
@@ -355,6 +367,7 @@ ion-content{
 }
 ion-img{
   height: 100px;
+  max-width: auto;
 }
 h1{
   font-family: 'Barlow Condensed', sans-serif;

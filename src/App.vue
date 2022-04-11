@@ -7,6 +7,9 @@
 <script lang="ts">
 import { IonApp, IonRouterOutlet } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import { useBackButton, useIonRouter } from '@ionic/vue';
+import { Plugins } from '@capacitor/core';
+const { App } = Plugins;
 
 
 export default defineComponent({
@@ -14,6 +17,14 @@ export default defineComponent({
   components: {
     IonApp,
     IonRouterOutlet
+  }, setup() {
+    const ionRouter = useIonRouter();
+    useBackButton(-1, () => {
+      if (!ionRouter.canGoBack()) {
+        App.exitApp();
+        console.log("Exit Application")
+      }
+    });
   }
 });
 </script>

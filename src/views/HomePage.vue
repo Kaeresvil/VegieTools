@@ -13,9 +13,12 @@
        </div><!-- end of liner div -->
        
        <div class="content">
+
+          <Transition name="fade"> 
            <div v-if="hideCon">
            <HomeContent/>
            </div>
+               </Transition>
            
              <Transition name="fade"> 
              <div v-if="hideCat" class="viewCategory">
@@ -124,7 +127,6 @@ export default {
         this.hideCon = true;
         this.hideAbout = true;
         this.hideBack = false;
-        console.log("Hello");
       },
 
   }

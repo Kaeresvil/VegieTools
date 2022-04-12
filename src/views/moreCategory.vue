@@ -40,7 +40,7 @@ data(){
         content:null,
         1:[
           {
-            title:this.vegetable,
+            title: "Bitter Gourd Desciption, Nutritive",
             content:'../workspace/English/Bitter Gourd/Bitter Gourd Desc'
             },
           {

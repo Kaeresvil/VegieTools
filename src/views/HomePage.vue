@@ -2,12 +2,13 @@
    <div class="main-container">
        <div class="header">
            <div>
-             <ion-img class="logo1" src="../../assets/logoW.png"></ion-img>
+             <ion-img v-if="logo" class="logo1" src="../../assets/logoW.png"></ion-img>
             </div>  <!--end of logohead -->
 
              <div>
-             <h6>VegieTools</h6>
+             <h6  v-if="heading">VegieTools</h6>
              </div>
+              
        </div><!-- end of header div -->
        <div class="liner">
        </div><!-- end of liner div -->
@@ -23,7 +24,7 @@
              <Transition name="fade"> 
              <div v-if="hideCat" class="viewCategory">
               
-                <ViewCategory v-on:backtoFirstHomePAge="homepage"/>
+                <ViewCategory v-on:backtoFirstHomePAge="homepage" v-on:hideHeader="hideTheHeader" v-on:showHeader="showTheHeader"/>
                
             </div>
              </Transition>
@@ -90,6 +91,9 @@ export default {
           hideAbout: true,
           hideClick: false,
           isBackClicked: false,
+          logo: true,
+          heading: true,
+          moreContent: false,
       }
   }, methods:{
    
@@ -128,6 +132,14 @@ export default {
         this.hideAbout = true;
         this.hideBack = false;
       },
+      hideTheHeader(){
+      this.logo = false;
+      this.heading = false;
+      },
+      showTheHeader(){
+      this.logo = true;
+      this.heading = true;
+      },
 
   }
   
@@ -154,8 +166,18 @@ export default {
 .header{
     display:flex;
     width: 100%;
-    height: 80px;
+    height: 78px;
     background-color:#0c4b05;
+}
+.showMore{
+  position: absolute;
+  right: 15px;
+  top: 19px;
+}
+.iconmenu{
+    width: 33px;
+    height: 33px;
+
 }
 .liner{
     width: 100%;
@@ -167,7 +189,7 @@ export default {
   padding: 5px ;
 }
 .logo1{
-    width: 65px;
+    width: 63px;
 }
 
 .grid-list{
@@ -197,17 +219,14 @@ h1{
 }
 h6{
     font-family: 'Bebas Neue', sans-serif;
-   font-size: 25px;
+   font-size: 22px;
    color:rgb(255, 255, 255);
    text-align: center;
    font-weight:800;
-   padding-top: 19px;
+   padding-top: 18px;
 
 }
-ion-icon{ 
-    width: 35px;
-    height: 35px;
-}
+
 .footerbtn{ 
     width: 27px;
     height: 27px;
@@ -249,4 +268,134 @@ ion-button{
 }
 /* 
 End of transition */
+
+
+/* 
+Responsive CSS */
+
+
+@media only screen and (max-device-height : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+.header{
+    height: 55px;
+}
+.liner{
+    height: 6px;
+}
+.logo1{
+    width: 43px;
+}
+h6{
+   font-size: 18px;
+  padding-top: 14px;
+}
+.footer{
+    height: 53px;
+}
+.footerbtn{ 
+    width: 25x;
+    height: 25px;
+}
+
+p{
+    font-size: 11px;
+}
+}
+
+@media only screen and (min-device-height : 481px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+.logo{
+  width: 200px;
+
+}
+
+.content{
+  top: 25%;
+
+}
+h3{
+font-size: 63px;
+}
+h4{
+    font-size: 28px;
+
+}
+
+}
+@media only screen and (min-device-height : 850px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+.logo{
+  width: 250px;
+
+}
+
+.content{
+  top: 29%;
+
+}
+h3{
+font-size: 72px;
+}
+h4{
+    font-size: 35px;
+
+}
+
+}
+@media screen 
+  and (min-height: 1024px){
+.logo{
+  width: 300px;
+
+}
+
+.content{
+  top: 27%;
+
+}
+h3{
+font-size: 85px;
+}
+h4{
+    font-size: 45px;
+
+}
+
+}
+@media screen 
+  and (min-height: 1180px){
+.logo{
+  width: 420px;
+
+}
+
+.content{
+  top: 25%;
+
+}
+h3{
+font-size: 125px;
+}
+h4{
+    font-size: 55px;
+
+}
+
+}
+@media screen 
+  and (min-height: 1368px){
+.logo{
+  width: 450px;
+
+}
+
+.content{
+  top: 25%;
+
+}
+h3{
+font-size: 125px;
+}
+h4{
+    font-size: 55px;
+
+}
+}
 </style>

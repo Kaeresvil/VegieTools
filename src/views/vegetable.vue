@@ -1,4 +1,6 @@
 <template>
+  <div v-if="showMore" class="showMore"><ion-icon class="iconmenu" @click="showMoreBtn(vegetableName, vegetableid)" src="../../assets/svg/menu-burger.svg"></ion-icon>
+ </div>
 <!-- //Header -->
   <div v-if="ContentisActive" class="Catheader">
      <h2 v-if="catHeader" >Vegetables</h2>
@@ -50,8 +52,7 @@
  <VegetableContent v-if="isPass" :selectcontent="vegetableContent"   :num="count" class="content"
   />
 
-   <div v-if="showMore" class="showMore"><ion-icon class="iconplus" @click="showMoreBtn(vegetableName, vegetableid)" src="../../assets/svg/plus.svg"></ion-icon>
- </div>
+ 
   
  <MoreView v-if="clickShowMore" :vegetable="vegetableTitle" :id="vegetableid"  v-on:backtoShow="moreContentBack" v-on:existContent="hideExistContent"/>
   
@@ -180,6 +181,8 @@ MoreView
              this.breadcrumbs = title;
              this.count = 0;
             this.ischeck = true;
+             this.$emit('moreContent');
+          
          
          },
         //  backk to vegetable grid
@@ -194,7 +197,7 @@ MoreView
                     this.showMore = false;
                     this.clickShowMore = false;
                     this.isActive = false;
-                    
+                   
           
                      if (this.ischeck == false) {
                   this.homeClick()
@@ -382,17 +385,15 @@ h1{
     position: relative; 
 }
 .showMore{
-    position: absolute;
-    border-radius: 50px 50px;
-    width: 60px;
-    height: 60px;
-    right: 15px;
-     bottom: 93px;
-    z-index: 1;
-    background-color: #0c4b05;
-    padding-top: 11px; 
+  position: absolute;
+  right: 18px;
+  top: 20px;
 }
+.iconmenu{
+    width: 37px;
+    height: 37px;
 
+}
 
 /* footer */
 .footer{
@@ -408,10 +409,7 @@ h1{
 .grid-item{
   padding-top: 7px;
 }
-ion-icon{ 
-    width: 35px;
-    height: 35px;
-}
+
 .footerbtn{ 
     width: 27px;
     height: 27px;
@@ -424,5 +422,72 @@ p{
 
 .papasali{
   width: 1%
+}
+
+
+
+
+@media only screen and (max-device-height : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+
+.footer{
+    height: 53px;
+}
+.footerbtn{ 
+    width: 25x;
+    height: 25px;
+}
+
+p{
+    font-size: 11px;
+}
+.Catheader{
+  height: 60px;  
+}
+ion-toggle{
+width: 44px;
+height: 23px;
+margin:22px 10px 0 0;
+}
+label{
+  font-size: 15px;
+  padding:24px 7px 5px 7px;
+
+}
+h2{
+  font-size: 23px;
+  padding:15px 0 5px 10px;
+}
+
+
+ion-content{ 
+   --background: transparent;
+  height: calc(100vh - 210px);
+ }
+
+
+
+ion-img{
+  height: 87px;
+}
+h1{ 
+  font-size: 20px;
+}
+ion-content{ 
+  height: calc(100vh - 180px);
+ }
+
+ .content{
+    height: calc(96vh - 135px);
+}
+
+.showMore{
+  right: 18px;
+  top: 18px;
+}
+.iconmenu{
+    width: 27px;
+    height: 27px;
+
+}
 }
 </style>

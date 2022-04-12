@@ -58,7 +58,11 @@
   
 <!-- Footer -->
    <div v-if="hideFooter" class="footer">
-           <div class="grid-item">
+        <div v-if="hideAbout" class="grid-item">
+                <ion-icon  @click="aboutClick" class="footerbtn" src="../../assets/svg/info.svg"></ion-icon>
+                 <p  @click="aboutClick" >About</p>
+            </div>
+           <div v-if="hidebackbtn" class="grid-item">
                 <ion-icon @click="backClick" class="footerbtn" src="../../assets/svg/arrowBack.svg"></ion-icon>
                  <p  @click="backClick" >Back</p>
             </div>
@@ -127,6 +131,8 @@ MoreView
             EnglishGrid: true,
             hideFooter: true,
             count: 0,
+            hideAbout: true,
+            hidebackbtn: false,
            
         }
       
@@ -180,8 +186,8 @@ MoreView
             this.vegetableid = id;
              this.breadcrumbs = title;
              this.count = 0;
-            this.ischeck = true;
-             this.$emit('moreContent');
+            this.hidebackbtn = true;
+            this.hideAbout = false;
           
          
          },
@@ -197,12 +203,9 @@ MoreView
                     this.showMore = false;
                     this.clickShowMore = false;
                     this.isActive = false;
+                    this.hidebackbtn = false;
+                    this.hideAbout = true;
                    
-          
-                     if (this.ischeck == false) {
-                  this.homeClick()
-     
-              }
                   
       },
         isMoreContent(){
@@ -224,6 +227,8 @@ MoreView
       },
       categoryClick(){
           this.backClick();
+      },aboutClick(){
+         this.$emit('backtoAboutPage');
       },
   
   // Show More Content Categories
@@ -348,7 +353,7 @@ h2{
 /* vegetable grid */
 ion-content{ 
    --background: transparent;
-  height: calc(100vh - 210px);
+  height: calc(100vh - 215px);
  }
 
 .vegGrid{
@@ -356,14 +361,14 @@ ion-content{
   grid-template-columns: auto auto;
   width: 95%;
   transform: translate(+2.5%, +5px);
-  margin-top: 6%;
+  margin-top: 4%;
   column-gap: 10px;
   row-gap: 10px;
 }
 .vegetableList{
   background-color: #ffffffe3;
-  box-shadow: 5px 5px rgba(168, 168, 168, 0.719); 
-  border: 1px solid rgba(63, 63, 63, 0.603);
+  box-shadow: 5px 5px rgba(110, 110, 110, 0.719); 
+  border: 1px solid rgb(5, 94, 13);
   border-radius: 10px 10px;
   padding: 10px 0 10px 0;
   text-align: center;
@@ -381,7 +386,7 @@ h1{
 
 /* For the Vegetable Content */
 .content{
-    height: calc(96vh - 151px);
+    height: calc(96vh - 139px);
     position: relative; 
 }
 .showMore{
@@ -402,7 +407,7 @@ h1{
     position: fixed;
     bottom: 0;
     width: 100%;
-    max-height: 60px;
+    max-height: 58px;
     background-color:#0c4b05;
     justify-items: center;
 }
@@ -424,11 +429,10 @@ p{
   width: 1%
 }
 
-
-
-
 @media only screen and (max-device-height : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
-
+ion-content{ 
+  height: calc(100vh - 162px);
+ }
 .footer{
     height: 53px;
 }
@@ -440,30 +444,79 @@ p{
 p{
     font-size: 11px;
 }
+
 .Catheader{
-  height: 60px;  
+  height: 50px;  
 }
 ion-toggle{
 width: 44px;
 height: 23px;
-margin:22px 10px 0 0;
+margin:16px 10px 0 0;
 }
 label{
   font-size: 15px;
-  padding:24px 7px 5px 7px;
+  padding:18px 7px 5px 7px;
 
 }
 h2{
   font-size: 23px;
-  padding:15px 0 5px 10px;
+  padding:12px 0 5px 10px;
+}
+h1{ 
+  font-size: 20px;
+}
+ion-img{
+  height: 87px;
+}
+
+ .content{
+    height: calc(96vh - 131px);
+}
+
+.showMore{
+  right: 18px;
+  top: 13px;
+}
+.iconmenu{
+    width: 27px;
+    height: 27px;
+
+}
+
 }
 
 
-ion-content{ 
-   --background: transparent;
-  height: calc(100vh - 210px);
- }
+/* landscpae responsive */
 
+@media only screen and (max-device-height : 450px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+.footer{
+    height: 50px;
+}
+.footerbtn{ 
+    width: 22x;
+    height: 22px;
+}
+
+p{
+    font-size: 9px;
+}
+.Catheader{
+  height: 50px;  
+}
+ion-toggle{
+width: 44px;
+height: 23px;
+margin:16px 10px 0 0;
+}
+label{
+  font-size: 15px;
+  padding:18px 7px 5px 7px;
+
+}
+h2{
+  font-size: 23px;
+  padding:12px 0 5px 10px;
+}
 
 
 ion-img{
@@ -472,17 +525,20 @@ ion-img{
 h1{ 
   font-size: 20px;
 }
+.vegGrid{
+  margin-top: 2%;
+}
 ion-content{ 
-  height: calc(100vh - 180px);
+  height: calc(100vh - 157px);
  }
 
  .content{
-    height: calc(96vh - 135px);
+    height: calc(96vh - 131px);
 }
 
 .showMore{
   right: 18px;
-  top: 18px;
+  top: 13px;
 }
 .iconmenu{
     width: 27px;

@@ -24,7 +24,7 @@
              <Transition name="fade"> 
              <div v-if="hideCat" class="viewCategory">
               
-                <ViewCategory v-on:backtoFirstHomePAge="homepage" v-on:hideHeader="hideTheHeader" v-on:showHeader="showTheHeader"/>
+                <ViewCategory v-on:backtoFirstHomePAge="homepage" v-on:backtoAboutPage="aboutpage" />
                
             </div>
              </Transition>
@@ -126,20 +126,20 @@ export default {
         
       },
       homepage(){
- this.hideFooter = true;
-     this.hideCat = false;
-        this.hideCon = true;
+          this.hideFooter = true;
+          this.hideCat = false;
+          this.hideCon = true;
+          this.hideAbout = true;
+          this.hideBack = false;
+      },
+    aboutpage(){
+        this.hideFooter = true;
+        this.hideCat = false;
+        this.hideAboutUs = true;
+        this.hideCon = false;
         this.hideAbout = true;
         this.hideBack = false;
-      },
-      hideTheHeader(){
-      this.logo = false;
-      this.heading = false;
-      },
-      showTheHeader(){
-      this.logo = true;
-      this.heading = true;
-      },
+      }
 
   }
   
@@ -191,6 +191,9 @@ export default {
 .logo1{
     width: 63px;
 }
+.about{
+  z-index: 1;
+}
 
 .grid-list{
  border-bottom:1px solid rgb(82, 82, 82);
@@ -223,7 +226,7 @@ h6{
    color:rgb(255, 255, 255);
    text-align: center;
    font-weight:800;
-   padding-top: 18px;
+   padding-top: 20px;
 
 }
 
@@ -396,6 +399,35 @@ font-size: 125px;
 h4{
     font-size: 55px;
 
+}
+}
+
+/* landscpae responsive */
+
+@media only screen and (max-device-height : 450px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+.header{
+    height: 50px;
+}
+.liner{
+    height: 6px;
+}
+.logo1{
+    width: 38px;
+}
+h6{
+   font-size: 17px;
+  padding-top: 8px;
+}
+.footer{
+    height: 50px;
+}
+.footerbtn{ 
+    width: 22x;
+    height: 22px;
+}
+
+p{
+    font-size: 9px;
 }
 }
 </style>

@@ -378,8 +378,8 @@ data(){
   box-sizing: border-box;
 }
 ion-icon{ 
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
 }
 ion-content{ 
    --background: transparent;
@@ -388,18 +388,17 @@ ion-content{
    border: 1px solid black;
   position: absolute;
   width: 90%;
-  height: 65%;
+  height: 50%;
   top: 53%;  
   left: 50%; 
   transform: translate(-50%, -50%);                                 
   background-color: #000000;
-  z-index: 1;
   border-radius: 20px 20px;
 }
 
 li{
   font-family:  sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   color:#e9e9e9;
   font-weight:600;
   padding: 18px;
@@ -409,8 +408,8 @@ li{
 .backMore{
     position: absolute;
     border-radius: 50px 50px;
-    width: 60px;
-    height: 60px;
+    width: 57px;
+    height: 57px;
     right: -5px;
     top: -20px;
      z-index: 1;
@@ -420,6 +419,28 @@ li{
 
    
 }
+/* landscpae responsive */
 
+@media only screen and (max-device-height : 450px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+ion-icon{ 
+    width: 24px;
+    height: 24px;
+}
+.navigation{
+   border: 1px solid black;
+  position: absolute;
+  width: 75%;
+  height: 57%;
+  top: 53%;  
+}
+.backMore{
+   
+    width: 53px;
+    height: 53px;
+     padding-top: 15px;
+
+   
+}
+}
 
 </style>

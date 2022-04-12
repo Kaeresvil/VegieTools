@@ -1,9 +1,11 @@
 <template>
+    
 <div class="content">
      <ion-img class="logo" src="../../assets/veg.png"></ion-img>
            <i><h3>VegieTools</h3></i>
            <h4>English and Iloco Version</h4>
 </div>
+
 </template>
 
 <script>
@@ -12,8 +14,13 @@
 export default {
      name: 'HomeContent',
    components: {
-    IonImg,
+    IonImg 
   },
+  data(){
+    return{
+        grid: true,
+    }
+  }
 }
 </script>
 
@@ -23,6 +30,7 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+
 .content{
   text-align: center;
   position: absolute;
@@ -175,6 +183,28 @@ h4{
 
 }
 
+}
+
+/* landscpae responsive */
+
+@media only screen and (max-device-height : 450px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+.logo{
+  width: 123px;
+
+}
+
+.content{
+  top: 20%;
+
+}
+
+h3{
+font-size: 48px;
+}
+h4{
+    font-size: 23px;
+
+}
 }
 
 </style>

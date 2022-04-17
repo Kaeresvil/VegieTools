@@ -232,12 +232,29 @@ font-size: 22px;
 
 }
 /* landscape responsive */
-@media only screen and (max-device-height : 450px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+@media only screen and (max-device-height : 370px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+.img-container{
+  margin-top: 4%;
+}
+.logo{
+  width: 110px;
+}
+
+h3{
+font-size: 17px;
+font-weight: 700;
+}
+h4{
+font-size: 12px;
+}
+
+}
+@media only screen and (min-device-height : 371px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
 .img-container{
   margin-top: 6%;
 }
 .logo{
-  width: 135px;
+  width: 130px;
 }
 
 h3{
@@ -249,7 +266,57 @@ font-size: 12px;
 }
 
 }
-@media only screen and (min-device-height : 600px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+@media only screen and (min-device-height : 421px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+.img-container{
+  margin-top: 4%;
+}
+.logo{
+  width: 170px;
+}
+
+h3{
+font-size: 25px;
+font-weight: 700;
+}
+h4{
+font-size: 12px;
+}
+}
+@media only screen and (min-device-height : 510px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+.img-container{
+  margin-top: 6%;
+}
+.logo{
+  width: 200px;
+}
+
+h3{
+font-size: 28px;
+font-weight: 700;
+}
+h4{
+font-size: 12px;
+}
+
+}
+@media only screen and (min-device-height : 700px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+.img-container{
+  margin-top: 7%;
+}
+.logo{
+  width:230px;
+}
+
+h3{
+font-size: 35px;
+font-weight: 700;
+}
+h4{
+font-size: 20px;
+}
+
+}
+@media only screen and (min-device-height : 800px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
 .img-container{
   margin-top: 6%;
 }
@@ -266,5 +333,4 @@ font-size: 20px;
 }
 
 }
-
 </style>

@@ -41,46 +41,42 @@ data(){
         1:[
           {
             title: "Bitter Gourd Desciption, Nutritive",
-            content:'../workspace/English/Bitter Gourd/Bitter Gourd Desc'
+            content:'../workspace/English/Bitter Gourd/BitterGourd'
             },
           {
             title:'Land Preparation and Crop Establishment ',
-            content:'../workspace/English/Bitter Gourd/Land-Preparation-and-Crop-Establishment'
+            content:'../workspace/English/Bitter Gourd/LandPreparationandCropEstablishment'
             },
           {
             title:'Integrated Nutrient and Water Management',
-            content:'../workspace/English/Bitter Gourd/Integrated Nutrient'
+            content:'../workspace/English/Bitter Gourd/IntegratedandWaterManagement'
             },
           {
            title:'Integrated Pest Management',
-            content:'../workspace/English/Bitter Gourd/Integrated-Pest-Management'
+            content:'../workspace/English/Bitter Gourd/IntegratedPestManagement'
             },
           {
              title:'Disease Management',
-              content:'../workspace/English/Bitter Gourd/Disease-Management'
-            },
-          {
-             title:'Weed Management',
-              content:'../workspace/English/Bitter Gourd/Weed-management'
+              content:'../workspace/English/Bitter Gourd/DiseaseManagement'
             },
           {
              title:'Harvesting and Post-harvest Handling',
-            content:'../workspace/English/Bitter Gourd/Harvesting-and-Postharvest-handling'
+            content:'../workspace/English/Bitter Gourd/HarvestingandPostHarvestHandling'
             },
           {
-             title:'Pre-Test/Self-Test',
-             content:'../workspace/English/Bitter Gourd/Bitter-gourd-pre-test'
+             title:'Self-Test',
+             content:'../workspace/English/Bitter Gourd/Bittergourdpretest'
             },
             ],
 
         2:[
          {
-            title:this.vegetable,
-            content:'../workspace/English/Eggplant/Eggplant-Description'
+            title: "Eggplant Desciption, Nutritive",
+            content:'../workspace/English/Eggplant/Eggplant'
             },
           {
             title:'Land Preparation and Crop Establishment ',
-            content:'../workspace/English/Eggplant/Land-Preparation-and-Crop-Establishment'
+            content:'../workspace/English/Eggplant/Land-Preparation-and-Crop-Establishment (1)'
             },
           {
             title:'Integrated Nutrient and Water Management ',
@@ -95,103 +91,99 @@ data(){
             content:'../workspace/English/Eggplant/Harvesting-and-Postharvest-Handling'
             },
               {
-             title:'Pre-Test/Self-Test',
-             content:'../workspace/English/Bitter Gourd/Bitter-gourd-pre-test'
+             title:'Self-Test',
+             content:'../workspace/English/Eggplant/Eggplant-Self-Test'
             },
        
             ],
 
         3:[
          {
-            title:this.vegetable,
+            title: "Description, Nutritive, Site Selection, Varities",
              content:'../workspace/English/Okra/Okra'
             },
           {
             title:'Cultural Management Practices ',
-            content:'../workspace/English/Okra/Cultural-Management-Practices'
+            content:'../workspace/English/Okra/CulturalManagementPractices'
             },
           {
             title:'Pest Management ',
-            content:'../workspace/English/Okra/Pest-Management'
+            content:'../workspace/English/Okra/PestManagement'
             },
           {
-            title:'Harvesting and Post-harvest Handling ',
-            content:'../workspace/English/Okra/Harvesting-and-Post-harvest-Practices'
+            title:'Harvesting and Post-harvest Practices ',
+            content:'../workspace/English/Okra/HarvestingandPostharvestPractices'
             },
               {
-             title:'Pre-Test/Self-Test',
-             content:'../workspace/English/Okra/Okra-Self-Test'
+             title:'Self-Test',
+             content:'../workspace/English/Okra/OkraSelfTest'
             },
        
             ],
 
         4:[
          {
-            title:this.vegetable,
-            content:'../workspace/English/Papaya/Papaya-Production'
+            title: "Papaya Desciption, Nutritive",
+            content:'../workspace/English/Papaya/Papaya'
             },
           {
             title:'Disease Management ',
-            content:'../workspace/English/Papaya/Disease-Management'
+            content:'../workspace/English/Papaya/DiseaseManagement'
             },
           {
-             title:'Disease Management 2 ',
-            content:'../workspace/English/Papaya/Disease-Management-Quiz'
+            title:'Pest Management Practices ',
+            content:'../workspace/English/Papaya/PestManagementPractices'
             },
           {
-            title:'Pest Management ',
-            content:'../workspace/English/Papaya/Pest-Management-Practices'
-            },
-          {
-            title:'Harvesting and Post-harvest Handling ',
+            title:'Harvesting ',
             content:'../workspace/English/Papaya/Harvesting'
             },
               {
-             title:'Pre-Test/Self-Test',
-             content:'../workspace/English/Papaya/Papaya Self-test'
+             title:'Self-Test',
+             content:'../workspace/English/Papaya/PapayaSelftest'
             },
        
             ],
 
         5:[
          {
-            title:this.vegetable,
-            content:'../workspace/English/Pole Sitao/Pole-Sitao'
+            title: "Description, Nutritive Value",
+            content:'../workspace/English/Pole Sitao/PoleSitao'
             },
           {
             title:'Land Preparation',
-            content:'../workspace/English/Pole Sitao/Land-Preparation'
+            content:'../workspace/English/Pole Sitao/LandPreparation'
             },
              {
              title:'Varietal and Site Selection',
-             content:'../workspace/English/Pole Sitao/Varietal-and-Site-Selection'
+             content:'../workspace/English/Pole Sitao/VarietalandSiteSelection'
             },
           {
             title:'Integrated Nutrient and Water Management ',
-            content:'../workspace/English/Pole Sitao/Integrated-Nutrient-and-Water-Management-_1_'
+            content:'../workspace/English/Pole Sitao/IntegratedNutrientandWaterManagement'
             },
           {
             title:'Integrated Pest Management ',
-            content:'../workspace/English/Pole Sitao/Integrated-Pest-Management'
+            content:'../workspace/English/Pole Sitao/IntegratedPestManagement'
             },
           {
             title:'Harvesting and Post-harvest Handling ',
-            content:'../workspace/English/Pole Sitao/Harvesting-and-Postharvest-Handling'
+            content:'../workspace/English/Pole Sitao/HarvestingandPostharvestHandling'
             },
               {
-             title:'Pre-Test/Self-Test',
-             content:'../workspace/English/Pole Sitao/Pole-sitao-Self-Test'
+             title:'Self-Test',
+             content:'../workspace/English/Pole Sitao/PolesitaoSelfTest'
             },
        
             ],
         6:[
          {
-            title:this.vegetable,
+            title: "Description, Nutritive, Varities",
             content:'../workspace/English/Squash/Squash-Production'
             },
           {
-            title:'Land Preparation/ Crop Establishment',
-            content:'../workspace/English/Squash/Crop-Establishment'
+            title:'Land Preparation, Crop Establishment',
+            content:'../workspace/English/Squash/CropEstablishment'
             },
              {
              title:'Site Selection and Planting Season',
@@ -203,148 +195,204 @@ data(){
             },
           {
             title:'Pest Management ',
-              content:'../workspace/English/Squash/Pest-Management'
+              content:'../workspace/English/Squash/PestManagement'
             },
           {
             title:'Harvesting and Post-harvest Practices ',
-            content:'../workspace/English/Squash/Harvesting-and-Postharvest-Practices'
+            content:'../workspace/English/Squash/HarvestingandPostharvestPractices'
             },
               {
-             title:'Pre-Test/Self-Test',
+             title:'Self-Test',
              content:'../workspace/English/Squash/Squash-Self-Test'
             },
        
             ],
         7:[
          {
-            title:this.vegetable,
-            content:'../workspace/English/Tomato/Tomato-Production'
+            title:"Description, Nutritive, Varities",
+            content:'../workspace/English/Tomato/TomatoProduction'
             },
           {
             title:'Land Preparation',
-            content:'../workspace/English/Tomato/Land-Preparation'
+            content:'../workspace/English/Tomato/LandPreparation'
             },
              {
              title:'Site Selection and Planting Season',
-             content:'../workspace/English/Tomato/ite Selection-and-Planting-Season'
+             content:'../workspace/English/Tomato/SiteSelectionandPlantingSeason'
             },
           {
             title:'Water Management ',
-            content:'../workspace/English/Tomato/Water-Management'
+            content:'../workspace/English/Tomato/WaterManagement'
             },
           {
             title:'Pest Management ',
-            content:'../workspace/English/Tomato/Pest-Management'
+            content:'../workspace/English/Tomato/PestManagement'
             },
           {
             title:'Harvest and Post-harvest Practices ',
-            content:'../workspace/English/Tomato/Harvest-and-Postharvest-Practices'
+            content:'../workspace/English/Tomato/HarvestandPostharvestPractices'
+            },
+             {
+             title:'Self-Test',
+             content:'../workspace/English/Tomato/TomatoSelfTest'
             },
        
             ],
         
             8:[
               {
-                  title:this.vegetable,
-            content:'../workspace/Iloco/Paria/Paria-Desc'
+            title: "Saguday ti Paria",
+            content:'../workspace/Iloco/Paria/Paria'
               },
               {
             title:'Panaggisagana iti Pagmulaan ken Wagas ti Panagmula',
-            content:'../workspace/Iloco/Paria/Panangisagana-iti-Pagmulaan-ken-Wagas-ti-Panagmula'
+            content:'../workspace/Iloco/Paria/PanangisaganaitiPagmulaankenWagastiPanagmula'
             },
               {
             title:'Panagganagan ken Panagpadanum',
-            content:'../workspace/Iloco/Paria/Panagganagan-ken-Panagpadanum'
+            content:'../workspace/Iloco/Paria/PanagganagankenPanagpadanum'
             },
               {
             title:'Panangmanehar kadagiti Peste',
-            content:'../workspace/Iloco/Paria/Panangmanehar-kadagiti-Peste'
+            content:'../workspace/Iloco/Paria/PanangmaneharkadagitiPeste'
             },
               {
             title:'Panagmanehar iti Sakit',
-            content:'../workspace/Iloco/Paria/Panagmanehar-iti-Sakit'
+            content:'../workspace/Iloco/Paria/PanagmaneharitiSakit'
             },
              {
             title:'Panangtariwidwid Kadagti Ruot',
-            content:'../workspace/Iloco/Paria/Panangtarawidwid-Kadagiti-Ruot'
+            content:'../workspace/Iloco/Paria/PanangtarawidwidKadagitiRuot'
             },
               {
             title:'Panagapit ken Panangtaming iti Apit',
-            content:'../workspace/Iloco/Paria/Panagapit-ken-Panangtaming-iti-Apit'
+            content:'../workspace/Iloco/Paria/PanagapitkenPanangtamingitiApit'
             },
         
             ],
             9:[
               {
-                  title:this.vegetable,
+            title: "Saguday ti Okra",
            content:'../workspace/Iloco/Okra/Okra'
               },
               {
             title:'Panangaywan Kadagiti Mula',
-            content:'../workspace/Iloco/Okra/PANANGAYWAN-KADAGITI-MULA'
+            content:'../workspace/Iloco/Okra/PANANGAYWANKADAGITIMULA'
             },
               {
             title:'Panangtarawidwid Kadagiti Peste',
-            content:'../workspace/Iloco/Okra/PANANGTARAWIDWID-KADAGITI-PESTE'
+            content:'../workspace/Iloco/Okra/PANANGTARAWIDWIDKADAGITIPESTE'
             },
               {
             title:'Panagapit ken Panagidulin',
-            content:'../workspace/Iloco/Okra/PANAGAPIT-KEN-PANAGIDULIN'
+            content:'../workspace/Iloco/Okra/PANAGAPITKENPANAGIDULIN'
             },
         
             ],
             10:[
               {
-                  title:this.vegetable,
-           content:'../workspace/Iloco/Bawang/Bawang/workspace'
+              title: "Saguday ti Bawang",
+           content:'../workspace/Iloco/Bawang/Bawang'
               },
               {
-            title:'Panaggisagana iti Pagmulaan',
-          content:'../workspace/Iloco/Bawang/Daga-apagmulaan/workspace'
+            title:'Daga a Pagmulaan',
+          content:'../workspace/Iloco/Bawang/DagaapagmulaankenDagitiaramidenkasangwanantipinagmula'
             },
               {
             title:'Dagiti Barayti iti Bawang',
-              content:'../workspace/Iloco/Bawang/Dagiti Barayti/workspace'
+              content:'../workspace/Iloco/Bawang/DAGITIBARAYTITIBAWANGAMAIMULMULAITIILOCOS'
             },
               {
-            title:'Panagmanehar iti  Mula',
-             content:'../workspace/Iloco/Bawang/Panagmanehar iti Mula/workspace'
+            title:'Panagmanehar ti  Mula a Bawang',
+             content:'../workspace/Iloco/Bawang/Panangmanehartimulaabawang'
             },
             {
-            title:'Panagmula',
-            content:'../workspace/Iloco/Bawang/Panagmula/workspace'
+            title:'Panagmula ri Bawang',
+            content:'../workspace/Iloco/Bawang/PANAGMULAITIBAWANG'
             },
               {
-            title:'Kangrunaan a Sakit',
-             content:'../workspace/Iloco/Bawang/Kangrunaan a Sakit/workspace'
+            title:'Kangrunaan a Sakit ti Bawang',
+             content:'../workspace/Iloco/Bawang/KANGRUNAANASAKITDAGITIBAWANG'
             },
              {
             title:'Panangmanehar kadagiti Peste',
-            content:'../workspace/Iloco/Bawang/Panagmanehar ti Peste/workspace'
+            content:'../workspace/Iloco/Bawang/PanangmaneharkadagitiPeste'
             },
               
         
             ],
             11:[
               {
-                  title:this.vegetable,
-           content:'../workspace/Iloco/Papaya/Papaya Production/workspace'
+                  title:"Saguday ti Papaya",
+           content:'../workspace/Iloco/Papaya/PapayaProduksyon'
               },
               {
             title:'Panangtarawidwid iti Sakit',
-          content:'../workspace/Iloco/Papaya/Panagtarawidwid ti sakit/workspace'
+          content:'../workspace/Iloco/Papaya/PanangtarawidwiditiSakit'
             },
-              {
-           title:'Panangtarawidwid iti Sakit Quiz',
-          content:'../workspace/Iloco/Papaya/Panagtarawidiwid quiz/workspace'
-            },
+             
               {
            title:'Panangtarawidwid kadagiiti Peste',
-          content:'../workspace/Iloco/Papaya/Panangtarawidwid kadagiti peste/workspace'
+          content:'../workspace/Iloco/Papaya/PanangtarawidwidkadagitiPeste'
             },
-            
-              
-        
+              {
+           title:'Panagapit',
+          content:'../workspace/Iloco/Papaya/Panagapit'
+            },
+            ],
+            12:[
+              {
+                  title:"Saguday ti Utong",
+           content:'../workspace/Iloco/Utong/Utong'
+              },
+              {
+            title:'Panagpili ti Umona a Barayti ',
+          content:'../workspace/Iloco/Utong/PANAGPILIITIUMNOABARAYTI'
+            },
+             
+              {
+           title:'Panagpili iti Lugar a Pagmulaan',
+          content:'../workspace/Iloco/Utong/PanagpiliitiLugaraPagmulaan'
+            },
+              {
+           title:'Panagabuno ken Panagpadanum',
+          content:'../workspace/Iloco/Utong/PANAGABONOKENPANAGPADANUM'
+            },
+              {
+           title:'Panangtarawidwid kadagiti Peste',
+          content:'../workspace/Iloco/Utong/PanangtarawidwidKadagitiSakitkenPeste'
+            },
+              {
+           title:'Panagapit ken Panagidulin',
+          content:'../workspace/Iloco/Utong/PANAGAPITKENPANAGIDULIN'
+            },
+            ],
+            13:[
+              {
+                  title:"Saguday ti Kamatis",
+           content:'../workspace/Iloco/Kamatis/Kamatis'
+              },
+              {
+            title:'Panagpili iti Lugar ken Panawen ti Panagmula',
+          content:'../workspace/Iloco/Kamatis/PanagpiliitiLugarkenPanawentiPanagmula'
+            },
+             
+              {
+           title:'Panangisagana iti Daga a Pagmulaan',
+          content:'../workspace/Iloco/Kamatis/PanangisaganaitiDagaaPagmulaan'
+            },
+              {
+           title:'Panagpadanum',
+          content:'../workspace/Iloco/Kamatis/Panagpadanum'
+            },
+              {
+           title:'Panangmanehar kadagiti Peste',
+          content:'../workspace/Iloco/Kamatis/PanangmaneharkadagitiPeste'
+            },
+              {
+           title:'Panagapit ken Panagidulin',
+          content:'../workspace/Iloco/Kamatis/PanangmaneharkadagitiPeste'
+            },
             ],
           
 
@@ -398,7 +446,7 @@ ion-content{
 
 li{
   font-family:  sans-serif;
-  font-size: 17px;
+  font-size: 20px;
   color:#e9e9e9;
   font-weight:600;
   padding: 18px;
@@ -419,27 +467,43 @@ li{
 
    
 }
-/* landscpae responsive */
+@media only screen and (max-device-height : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+
+
+li{
+  font-size: 16px;
+}
+
+.backMore{
+    width: 43px;
+    height: 43px;
+     padding-top: 11px;
+
+   
+}
+ion-icon{ 
+    width: 22px;
+    height: 22px;
+}
+
+}
 
 @media only screen and (max-device-height : 450px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
-ion-icon{ 
-    width: 24px;
-    height: 24px;
+
+li{
+  font-size: 16px;
 }
-.navigation{
-   border: 1px solid black;
-  position: absolute;
-  width: 75%;
-  height: 57%;
-  top: 53%;  
-}
+
 .backMore{
-   
-    width: 53px;
-    height: 53px;
-     padding-top: 15px;
+    width: 43px;
+    height: 43px;
+     padding-top: 11px;
 
    
+}
+ion-icon{ 
+    width: 22px;
+    height: 22px;
 }
 }
 

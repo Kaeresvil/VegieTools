@@ -27,7 +27,7 @@
   <div  v-if="EnglishGrid" class="vegGrid">
 
       <div  v-for="(plants, index) in englishPlants" :key="index">
-        <div  @click="viewDetails(plants.content, plants.title, plants.id)" class="vegetableList">
+        <div  @click="viewDetails(plants.content, plants.title, plants.subtitle, plants.id)" class="vegetableList">
           <ion-img :src="plants.src"></ion-img>
           <h1>{{plants.title}}</h1>
         </div>      
@@ -36,7 +36,7 @@
 
      <div v-if="IlocoGrid" class="vegGrid">
       <div  v-for="(plants, index) in ilocoPlants" :key="index">
-        <div  @click="viewDetails(plants.content, plants.title, plants.id)" class="vegetableList">
+        <div  @click="viewDetails(plants.content, plants.title, plants.subtitle, plants.id)" class="vegetableList">
           <ion-img :src="plants.src"></ion-img>
           <h1>{{plants.title}}</h1>
         </div>
@@ -174,7 +174,7 @@ MoreView
       },
    
    //////Selecting A vegetable from Grid
-          viewDetails(content, title, id){
+          viewDetails(content, title, subtitle, id){
             this.vegetableContent = content;
             this.isPass = true;
             this.isPasstoback = false;
@@ -184,7 +184,7 @@ MoreView
             this.isActive = true;
             this.vegetableName = title;
             this.vegetableid = id;
-             this.breadcrumbs = title;
+             this.breadcrumbs = subtitle;
              this.count = 0;
             this.hidebackbtn = true;
             this.hideAbout = false;
@@ -302,7 +302,7 @@ this.vegetableContent = content;
   background-color: #f7f7f7e3;
   color: rgb(3, 3, 3);
   width: 95%;
-  height: 30px;
+  height: auto;
   transform: translate(+2.5%, +5px);
   margin-bottom: 10px;   
   display: grid;
@@ -314,7 +314,7 @@ this.vegetableContent = content;
   font-weight:500;
   font-size: 13px;
    width: 100%;
-   padding: 7px 0 0 0;
+    padding: 6px 0 6px 0;
 }
 
 h6{
@@ -324,7 +324,7 @@ h6{
   font-weight:1000;
    float: left;
    width: auto;
-   padding: 3px 0 0 10px;
+   padding: 3px 0 3px 10px;
 }
 ion-toggle{
   width: 51px;
@@ -353,7 +353,7 @@ h2{
 /* vegetable grid */
 ion-content{ 
    --background: transparent;
-  height: calc(100vh - 215px);
+  height: calc(100vh - 211px);
  }
 
 .vegGrid{
@@ -379,15 +379,14 @@ ion-img{
 }
 h1{
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 25px;
+  font-size: 24px;
   color:rgb(51, 51, 51);
   font-weight:1000;
 }
 
 /* For the Vegetable Content */
 .content{
-    height: calc(96vh - 139px);
-    position: relative; 
+   height: calc(96vh - 155px);
 }
 .showMore{
   position: absolute;
@@ -429,10 +428,21 @@ p{
   width: 1%
 }
 
+/* 
+Responsive CSS */
+
+
 @media only screen and (max-device-height : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
-ion-content{ 
-  height: calc(100vh - 162px);
- }
+.header{
+    height: 55px;
+}
+.liner{
+    height: 6px;
+}
+.logo1{
+    width: 43px;
+}
+
 .footer{
     height: 53px;
 }
@@ -444,31 +454,15 @@ ion-content{
 p{
     font-size: 11px;
 }
-
-.Catheader{
-  height: 50px;  
-}
-ion-toggle{
-width: 44px;
-height: 23px;
-margin:16px 10px 0 0;
-}
-label{
-  font-size: 15px;
-  padding:18px 7px 5px 7px;
-
-}
-h2{
-  font-size: 23px;
-  padding:12px 0 5px 10px;
-}
-h1{ 
+h5{
   font-size: 20px;
 }
-ion-img{
-  height: 87px;
-}
 
+
+li{
+  font-size: 17px;
+
+}
  .content{
     height: calc(96vh - 131px);
 }
@@ -483,12 +477,46 @@ ion-img{
 
 }
 
+ion-content{ 
+  height: calc(100vh - 185px);
+ }
+ h1{
+    font-size: 20px;
+ }
+
 }
 
+
+@media only screen and (min-device-height : 700px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+ .content{
+    height: calc(96vh - 143px);
+}
+
+}
+
+@media only screen and (min-device-height : 952px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+ .content{
+    height: calc(96vh - 138px);
+}
+
+}
 
 /* landscpae responsive */
 
 @media only screen and (max-device-height : 450px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+.header{
+    height: 50px;
+}
+.liner{
+    height: 6px;
+}
+.logo1{
+    width: 38px;
+}
+h6{
+   font-size: 17px;
+  padding-top: 8px;
+}
 .footer{
     height: 50px;
 }
@@ -498,40 +526,8 @@ ion-img{
 }
 
 p{
-    font-size: 9px;
+    font-size: 11px;
 }
-.Catheader{
-  height: 50px;  
-}
-ion-toggle{
-width: 44px;
-height: 23px;
-margin:16px 10px 0 0;
-}
-label{
-  font-size: 15px;
-  padding:18px 7px 5px 7px;
-
-}
-h2{
-  font-size: 23px;
-  padding:12px 0 5px 10px;
-}
-
-
-ion-img{
-  height: 87px;
-}
-h1{ 
-  font-size: 20px;
-}
-.vegGrid{
-  margin-top: 2%;
-}
-ion-content{ 
-  height: calc(100vh - 157px);
- }
-
  .content{
     height: calc(96vh - 131px);
 }
@@ -545,5 +541,8 @@ ion-content{
     height: 27px;
 
 }
+ion-content{ 
+  height: calc(100vh - 175px);
+ }
 }
 </style>

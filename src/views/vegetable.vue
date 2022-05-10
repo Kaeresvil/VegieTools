@@ -7,6 +7,8 @@
      <h2 v-if="catHeaderIloco">Natnateng</h2>
 <!-- //select language -->
       <ion-toggle @click="setLanguage" color="dark"></ion-toggle> <label v-if="isEnglish">English</label><label  v-if="isIloco">Iloco</label>
+
+    
    </div>
 <!-- Vegetable Name -->
     <div v-if="isActive" class="Catheader2">
@@ -56,6 +58,15 @@
   
  <MoreView v-if="clickShowMore" :vegetable="vegetableTitle" :id="vegetableid"  v-on:backtoShow="moreContentBack" v-on:existContent="hideExistContent"/>
   
+
+   <div v-if="TextSize" class="navigationsize">
+           <h3 class="NavHeader" >Adjust Font Size</h3>
+           <h3 class="sampleText" v-bind:style="changeSize">Sample Text</h3>
+         
+       <input class="slider" type="range" min="20" max="35" v-model="fSize">
+   <div class="backMore"><ion-icon class="backEx" @click="backTextSize" src="../../assets/svg/cross.svg"></ion-icon></div>
+      </div>
+    
 <!-- Footer -->
    <div v-if="hideFooter" class="footer">
         <div v-if="hideAbout" class="grid-item">
@@ -71,9 +82,15 @@
                 <ion-icon @click="homeClick"  class="footerbtn" src="../../assets/svg/home.svg"></ion-icon>
                  <p  @click="homeClick" >Home</p>
             </div>
-            <div  class="grid-item">
+
+             <div v-if="isContent" class="grid-item">
                 <ion-icon  @click="categoryClick" class="footerbtn" src="../../assets/svg/apps.svg"></ion-icon>
-                <p  @click="categoryClick" >Vegetables</p>
+                <p  @click="categoryClick"  >Vegetables</p>
+                
+            </div>
+              <div v-if="isFont" class="grid-item">
+                <ion-icon  @click="TextClick" class="footerbtn" src="../../assets/svg/fontSize.svg"></ion-icon>
+                <p  @click="TextClick"  >Text Size</p>
                 
             </div>
       </div> <!-- end of footer div -->
@@ -132,11 +149,21 @@ MoreView
             hideFooter: true,
             count: 0,
             hideAbout: true,
+            isContent: true,
             hidebackbtn: false,
+              hideNav: false,
+              isFont: false,
+          fSize: 20,
+          TextSize: false,
            
         }
       
 
+    },
+    computed:{
+    changeSize(){
+      return {fontSize: this.fSize + 'px'}
+    }
     },
   
     methods: {
@@ -188,6 +215,8 @@ MoreView
              this.count = 0;
             this.hidebackbtn = true;
             this.hideAbout = false;
+            this.isContent = false;
+            this.isFont = true;
           
          
          },
@@ -205,6 +234,10 @@ MoreView
                     this.isActive = false;
                     this.hidebackbtn = false;
                     this.hideAbout = true;
+                     this.isContent = true;
+                   this.isFont = false;
+        this. backTextSize();
+
                    
                   
       },
@@ -223,6 +256,8 @@ MoreView
            this.$emit('backtoFirstHomePAge');
         this.hideFooter = false;
         this.backClick();
+        this. backTextSize();
+        
         
       },
       categoryClick(){
@@ -239,6 +274,7 @@ MoreView
       this.vegetableTitle = vegetableName;
       this.vegetableid = vegetableid;
      this.ExistingMoreContent();
+      this. backTextSize();
   },
 
   moreContentBack(){
@@ -270,6 +306,15 @@ this.vegetableContent = content;
             this.isActive = true;
       
          },
+
+         backTextSize(){
+        this.TextSize = false;
+      },
+     
+      TextClick(){
+        this.TextSize = true;
+        this.clickShowMore = false;
+      },
     
     },
 
@@ -284,6 +329,88 @@ this.vegetableContent = content;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+.navigationsize{
+   border: 1px solid black;
+  position: absolute;
+  width: 75%;
+  height: auto;
+  top: 53%;  
+  left: 50%; 
+  transform: translate(-50%, -50%);                                 
+  background-color: #161616;
+   opacity: .98;
+  border-radius: 20px 20px;
+  padding-bottom: 10px;
+}
+.backMore{
+    position: absolute;
+    border-radius: 50px 50px;
+    width: 42px;
+    height: 42px;
+    right: -17px;
+    top: -15px;
+     z-index: 1;
+     background-color: #0c4b05;
+     text-align: center;
+     padding-top: 11px;
+
+   
+}
+.NavHeader{
+  font-family:  sans-serif;
+  font-size: 26px;
+  color:#e9e9e9;
+  font-weight:600;
+  padding: 18px;
+  border-bottom: 2px solid rgb(77, 77, 77);
+}
+.sampleText{
+  padding-top: 5px;
+  padding-bottom: 15px;
+  font-size: var(--font-size);
+  color:#e9e9e9;
+
+
+}
+.iconSmall{
+  width: 24px;
+  height: 24px;
+  padding-right: 7px;
+}
+.iconLarge{
+margin-top: 5px;
+  padding-left: 7px;
+}
+
+.backEx{
+width: 23px;
+height: 23px;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 75%;
+  height: 10px;
+  background: rgb(255, 255, 255);
+  outline: none;
+  margin-bottom: 5px;
+
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #0c4b05;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #0c4b05;
+  cursor: pointer;
 }
 
 /* switching language */

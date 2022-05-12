@@ -236,8 +236,9 @@ h6{
 }
 p{
     color:#ffffff;
-    font-size: 14px;
-    width: 70px;
+    font-size: 18px;
+    padding: 0px 33px;
+    
 }
 .menubtn{
     position: absolute;
@@ -300,7 +301,7 @@ h6{
 }
 
 p{
-    font-size: 11px;
+    font-size: 15px;
 }
 }
 
@@ -427,7 +428,7 @@ h6{
 }
 
 p{
-    font-size: 9px;
+    font-size: 17px;
 }
 }
 </style>

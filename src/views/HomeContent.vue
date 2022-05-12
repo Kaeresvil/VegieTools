@@ -34,7 +34,7 @@ export default {
 .content{
   text-align: center;
   position: absolute;
-  top: 29%;
+  top: 31%;
   left: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -94,7 +94,7 @@ h4{
 }
 
 .content{
-  top: 27%;
+  top: 29%;
 
 }
 

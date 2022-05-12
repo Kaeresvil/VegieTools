@@ -9,16 +9,17 @@
                 <ion-img src="../../assets/kee.png"></ion-img>
                 <h1>Researcher</h1>
               </div>      
-              <div class="vegetableList">
-                <h1>Ma. Eloiza Joy Q. Raymundo</h1>
-                <ion-img src="../../assets/eloi.png"></ion-img>
-                <h1>Researcher</h1>
-              </div>      
+             
               <div class="vegetableList">
                 <h1>Ruben Jose Q. Fernandez</h1>
                 <ion-img src="../../assets/ruben.png"></ion-img>
                 <h1>Researcher</h1>
-              </div>      
+              </div>  
+                <div class="vegetableList">
+                <h1>Ma. Eloiza Joy Q. Raymundo</h1>
+                <ion-img src="../../assets/eloi.png"></ion-img>
+                <h1>Researcher</h1>
+              </div>         
               <div class="vegetableList">
                 <h1>Prof. Wilben Christie R. Pagtaconan</h1>
                 <ion-img src="../../assets/wilben.png"></ion-img>

@@ -1,13 +1,19 @@
 <template>
   <div v-if="showMore" class="showMore"><ion-icon class="iconmenu" @click="showMoreBtn(vegetableName, vegetableid)" src="../../assets/svg/menu-burger.svg"></ion-icon>
+   <p  style="margin-top: -9px; color: white; font-size: 13px;">More</p>
  </div>
 <!-- //Header -->
   <div v-if="ContentisActive" class="Catheader">
      <h2 v-if="catHeader" >Vegetables</h2>
      <h2 v-if="catHeaderIloco">Natnateng</h2>
-<!-- //select language -->
-      <ion-toggle @click="setLanguage" color="dark"></ion-toggle> <label v-if="isEnglish">English</label><label  v-if="isIloco">Iloco</label>
 
+
+<div class="button-box">
+			<div id="btn" :style="isRight ? { 'left': '70px'} : null"></div>
+			<button type="button" class="toggle-btn1" @click="leftClick()">English</button>
+			<button type="button" class="toggle-btn2" @click="rightClick()">Iloco</button>
+		</div>
+  
     
    </div>
 <!-- Vegetable Name -->
@@ -71,26 +77,26 @@
    <div v-if="hideFooter" class="footer">
         <div v-if="hideAbout" class="grid-item">
                 <ion-icon  @click="aboutClick" class="footerbtn" src="../../assets/svg/info.svg"></ion-icon>
-                 <p  @click="aboutClick" >About</p>
+                 <p class="ftext" @click="aboutClick" >About</p>
             </div>
            <div v-if="hidebackbtn" class="grid-item">
                 <ion-icon @click="backClick" class="footerbtn" src="../../assets/svg/arrowBack.svg"></ion-icon>
-                 <p  @click="backClick" >Back</p>
+                 <p class="ftext" @click="backClick" >Back</p>
             </div>
            
             <div class="grid-item">
                 <ion-icon @click="homeClick"  class="footerbtn" src="../../assets/svg/home.svg"></ion-icon>
-                 <p  @click="homeClick" >Home</p>
+                 <p class="ftext" @click="homeClick" >Home</p>
             </div>
 
              <div v-if="isContent" class="grid-item">
                 <ion-icon  @click="categoryClick" class="footerbtn" src="../../assets/svg/apps.svg"></ion-icon>
-                <p  @click="categoryClick"  >Vegetables</p>
+                <p  class="ftext" @click="categoryClick"  >Vegetables</p>
                 
             </div>
               <div v-if="isFont" class="grid-item">
                 <ion-icon  @click="TextClick" class="footerbtn" src="../../assets/svg/fontSize.svg"></ion-icon>
-                <p  @click="TextClick"  >Text Size</p>
+                <p class="ftext" @click="TextClick"  >Text Size</p>
                 
             </div>
       </div> <!-- end of footer div -->
@@ -99,9 +105,9 @@
 </template>
 
 <script>
-import {IonToggle } from '@ionic/vue';
 import VegetableContent from './categories/H5Pstandalone.vue'
 import MoreView from './moreCategory.vue'
+
 
 export default {
  name: 'vegeTable',
@@ -117,7 +123,6 @@ export default {
   },
     components: {
 VegetableContent,
-IonToggle,
 MoreView
     },
     data(){
@@ -132,6 +137,7 @@ MoreView
             isPass: false,
             isPasstoback: false,
             grid: true,
+            isRight: false,
 
             // show moreContent
             showMore: false,
@@ -139,7 +145,6 @@ MoreView
             //switching language
             ContentisActive: true, ///Header for langauge
             isActive: false, /// header for Vegetable name
-            isEnglish: true,
             ischeck: false,
             catHeader: true,
             catHeaderIloco: false,
@@ -167,23 +172,19 @@ MoreView
     },
   
     methods: {
-      ///Setting Languge
-       setLanguage(){
-      if (this.isEnglish) {
-        //call method for iloco
-        this.iloco();
-        this.isEnglish = false;
-        this.isIloco = true;
-        this.ischeck = false;
+
+ leftClick() {
+  this.isRight = false;
+  this.english();
+
+},
+ rightClick() {
+  this.isRight =true;
+  this.iloco();
+
+},
+
      
-      } else {
-        this.english();
-        this.isEnglish = true;
-        this.isIloco = false;
-        this.ischeck = false;
-     
-      }
-    },
 
      iloco(){
            this.catHeader = false;
@@ -261,7 +262,7 @@ MoreView
         
       },
       categoryClick(){
-          this.backClick();
+          this.leftClick();
       },aboutClick(){
          this.$emit('backtoAboutPage');
       },
@@ -325,6 +326,61 @@ this.vegetableContent = content;
 </script>
 
 <style scoped>
+
+.button-box {
+	width: 150px;
+	margin-right: 10px;
+	margin-top: 17px;
+  float: right;
+	position: relative;
+	border-radius: 12px;
+	background: rgb(202, 202, 202);
+  padding: 2px 2px;
+}
+
+.toggle-btn1 {
+	padding: 10px 10px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	position: relative;
+	text-align: center;
+ color:#161616;
+  font-size: 15px;
+  font-weight: 700;
+ 
+}
+.toggle-btn2 {
+	padding: 10px 17px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	position: relative;
+	text-align: center;
+ color:#161616;
+  font-size: 15px;
+  font-weight: 700;
+ 
+}
+
+#btn {
+	left: 0;
+	top: 0;
+	position: absolute;
+	width: 80px;
+	height: 100%;
+	background: #ffffff;
+	border-radius: 12px;
+	transition: .5s;
+  border: 1px solid green;
+}
+
+
+
+
+/* End of toggle button */
 *{
     margin: 0;
     padding: 0;
@@ -421,7 +477,8 @@ height: 23px;
   width: 95%;
   height: 70px;
   transform: translate(+2.5%, +5px);
-  box-shadow: 6px 6px rgb(141, 141, 141);      
+  box-shadow: 6px 6px rgb(141, 141, 141); 
+    
   
 }
 .Catheader2{
@@ -497,12 +554,12 @@ ion-content{
   box-shadow: 5px 5px rgba(110, 110, 110, 0.719); 
   border: 1px solid rgb(5, 94, 13);
   border-radius: 10px 10px;
-  padding: 10px 0 10px 0;
+  padding: 10px 10px 10px 10px;
   text-align: center;
 }
 ion-img{
   height: 100px;
-  max-width: auto;
+  max-width: 100%;
 }
 h1{
   font-family: 'Barlow Condensed', sans-serif;
@@ -519,6 +576,7 @@ h1{
   position: absolute;
   right: 18px;
   top: 20px;
+ 
 }
 .iconmenu{
     width: 37px;
@@ -545,12 +603,12 @@ h1{
     width: 27px;
     height: 27px;
 }
-p{
+.ftext{
     color:#ffffff;
-    font-size: 14px;
-    width: 70px;
+    font-size: 18px;
+    padding: 0px 33px;
+    
 }
-
 .papasali{
   width: 1%
 }
@@ -579,7 +637,7 @@ Responsive CSS */
 }
 
 p{
-    font-size: 11px;
+    font-size: 15px;
 }
 h5{
   font-size: 20px;
@@ -652,8 +710,8 @@ h6{
     height: 22px;
 }
 
-p{
-    font-size: 11px;
+.ftext{
+    font-size: 17px;
 }
  .content{
     height: calc(96vh - 131px);

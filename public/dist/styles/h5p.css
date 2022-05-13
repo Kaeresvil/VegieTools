@@ -51,7 +51,7 @@ html.h5p-iframe, html.h5p-iframe > body {
   user-select: none;
 }
 html.h5p-iframe .h5p-content {
-  font-size: 21px;
+  font-size: 21px;  
   line-height: 1.5em;
   width: 100%;
   height: auto;

@@ -9,7 +9,7 @@
 
 
 <div class="button-box">
-			<div id="btn" :style="isRight ? { 'left': '70px'} : null"></div>
+			<div id="btn" :style="isRight ? { 'left': '69px'} : null"></div>
 			<button type="button" class="toggle-btn1" @click="leftClick()">English</button>
 			<button type="button" class="toggle-btn2" @click="rightClick()">Iloco</button>
 		</div>
@@ -369,12 +369,15 @@ this.vegetableContent = content;
 	left: 0;
 	top: 0;
 	position: absolute;
-	width: 80px;
-	height: 100%;
+	width: 75px;
+	height: 80%;
+  margin-top: 4px;
+  margin-left: 3px;
+  margin-right: 4px;
 	background: #ffffff;
 	border-radius: 12px;
 	transition: .5s;
-  border: 1px solid green;
+  border: 1px solid #0c4b05;
 }
 
 

@@ -63,10 +63,7 @@ data(){
              title:'Harvesting and Post-harvest Handling',
             content:'../workspace/English/Bitter Gourd/HarvestingandPostHarvestHandling'
             },
-          {
-             title:'Self-Test',
-             content:'../workspace/English/Bitter Gourd/Bittergourdpretest'
-            },
+          
             ],
 
         2:[
@@ -90,10 +87,7 @@ data(){
             title:'Harvesting and Post-harvest Handling ',
             content:'../workspace/English/Eggplant/Harvesting-and-Postharvest-Handling'
             },
-              {
-             title:'Self-Test',
-             content:'../workspace/English/Eggplant/Eggplant-Self-Test'
-            },
+             
        
             ],
 
@@ -114,10 +108,7 @@ data(){
             title:'Harvesting and Post-harvest Practices ',
             content:'../workspace/English/Okra/HarvestingandPostharvestPractices'
             },
-              {
-             title:'Self-Test',
-             content:'../workspace/English/Okra/OkraSelfTest'
-            },
+             
        
             ],
 
@@ -138,10 +129,7 @@ data(){
             title:'Harvesting ',
             content:'../workspace/English/Papaya/Harvesting'
             },
-              {
-             title:'Self-Test',
-             content:'../workspace/English/Papaya/PapayaSelftest'
-            },
+             
        
             ],
 
@@ -170,10 +158,7 @@ data(){
             title:'Harvesting and Post-harvest Handling ',
             content:'../workspace/English/Pole Sitao/HarvestingandPostharvestHandling'
             },
-              {
-             title:'Self-Test',
-             content:'../workspace/English/Pole Sitao/PolesitaoSelfTest'
-            },
+             
        
             ],
         6:[
@@ -201,10 +186,7 @@ data(){
             title:'Harvesting and Post-harvest Practices ',
             content:'../workspace/English/Squash/HarvestingandPostharvestPractices'
             },
-              {
-             title:'Self-Test',
-             content:'../workspace/English/Squash/Squash-Self-Test'
-            },
+             
        
             ],
         7:[
@@ -232,10 +214,7 @@ data(){
             title:'Harvest and Post-harvest Practices ',
             content:'../workspace/English/Tomato/HarvestandPostharvestPractices'
             },
-             {
-             title:'Self-Test',
-             content:'../workspace/English/Tomato/TomatoSelfTest'
-            },
+          
        
             ],
         
@@ -268,6 +247,10 @@ data(){
             title:'Panagapit ken Panangtaming iti Apit',
             content:'../workspace/Iloco/Paria/PanagapitkenPanangtamingitiApit'
             },
+            {
+           title:'Panag-eksamen',
+          content:'../workspace/Iloco/Paria/Bitter-gourd-pre-test'
+            },
         
             ],
             9:[
@@ -286,6 +269,10 @@ data(){
               {
             title:'Panagapit ken Panagidulin',
             content:'../workspace/Iloco/Okra/PANAGAPITKENPANAGIDULIN'
+            },
+             {
+           title:'Panag-eksamen',
+          content:'../workspace/Iloco/Okra/Okra-Self-Test'
             },
         
             ],
@@ -318,13 +305,14 @@ data(){
             title:'Panangmanehar kadagiti Peste',
             content:'../workspace/Iloco/Bawang/PanangmaneharkadagitiPeste'
             },
+             
               
         
             ],
             11:[
               {
                   title:"Saguday ti Papaya",
-           content:'../workspace/Iloco/Papaya/PapayaProduksyon'
+           content:'../workspace/Iloco/Papaya/Papaya'
               },
               {
             title:'Panangtarawidwid iti Sakit',
@@ -338,6 +326,10 @@ data(){
               {
            title:'Panagapit',
           content:'../workspace/Iloco/Papaya/Panagapit'
+            },
+              {
+           title:'Panag-eksamen',
+          content:'../workspace/Iloco/Papaya/Papaya-Self-Test'
             },
             ],
             12:[
@@ -366,6 +358,10 @@ data(){
            title:'Panagapit ken Panagidulin',
           content:'../workspace/Iloco/Utong/PANAGAPITKENPANAGIDULIN'
             },
+             {
+           title:'Panag-eksamen',
+          content:'../workspace/Iloco/Utong/Utong-Self-Test'
+            },
             ],
             13:[
               {
@@ -392,6 +388,10 @@ data(){
               {
            title:'Panagapit ken Panagidulin',
           content:'../workspace/Iloco/Kamatis/PanangmaneharkadagitiPeste'
+            },
+             {
+           title:'Panag-eksamen',
+          content:'../workspace/Iloco/Kamatis/Tomato Self-Test'
             },
             ],
           

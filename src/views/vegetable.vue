@@ -1,6 +1,6 @@
 <template>
   <div v-if="showMore" class="showMore"><ion-icon class="iconmenu" @click="showMoreBtn(vegetableName, vegetableid)" src="../../assets/svg/menu-burger.svg"></ion-icon>
-   <p  style="margin-top: -9px; color: white; font-size: 13px;">More</p>
+   <p  style="margin-top: -5px; color: white; font-size: 13px;">More</p>
  </div>
 <!-- //Header -->
   <div v-if="ContentisActive" class="Catheader">

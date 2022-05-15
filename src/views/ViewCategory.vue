@@ -99,7 +99,7 @@ export default defineComponent({
             title:'Papaya',
             subtitle:'Saguday ti Papaya',
             src:'../../assets/vegetable/papaya.jpg',
-           content:'../workspace/Iloco/Papaya/PapayaProduksyon'
+           content:'../workspace/Iloco/Papaya/Papaya'
             },
             {
             id:'12',

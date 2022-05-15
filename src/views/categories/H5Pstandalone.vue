@@ -1,6 +1,6 @@
 <template>
 
-  <ion-content>
+  <ion-content scrollX="true" scrollY="true">
   <div v-if="isActive" id="h5p-container">
   </div>
  </ion-content>

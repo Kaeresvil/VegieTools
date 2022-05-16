@@ -74,6 +74,9 @@
    <div class="backMore"><ion-icon class="backEx" @click="backTextSize" src="../../assets/svg/cross.svg"></ion-icon></div>
       </div>
     
+
+</div>
+
 <!-- Footer -->
    <!-- <div v-if="hideFooter" class="footer">
         <div v-if="hideAbout" class="grid-item">
@@ -100,8 +103,7 @@
                 <p class="ftext" @click="TextClick"  >Text Size</p>
                 
             </div>
-      </div> end of footer div -->
-</div>
+      </div>  -->
   
 </template>
 
@@ -119,6 +121,10 @@ export default {
     },
     ilocoPlants: {
       type: Array,
+      required: true
+    },
+    isback: {
+      type: Boolean,
       required: true
     },
   },
@@ -152,7 +158,7 @@ MoreView
 
             IlocoGrid: false,
             EnglishGrid: true,
-            hideFooter: true,
+            hideFooter: false,
             count: 0,
             hideAbout: true,
             isContent: true,
@@ -170,6 +176,14 @@ MoreView
     changeSize(){
       return {fontSize: this.fSize + 'px'}
     }
+    },
+    mounted(){
+  
+      
+        this.Click();
+         this.isPass = false;
+          // console.log("back Clicked")
+      
     },
   
     methods: {
@@ -219,11 +233,12 @@ MoreView
             this.hideAbout = false;
             this.isContent = false;
             this.isFont = true;
+            this.$emit('backtoGrid');
           
          
          },
         //  backk to vegetable grid
-        backClick(){
+        Click(){
 
                     this.isPasstoback = true;
                     this.isPass = false;
@@ -331,6 +346,7 @@ this.vegetableContent = content;
 .containerContent{
  width: 100%;
  height: calc(96vh - 155px);
+
 }
 .button-box {
 	width: 150px;
@@ -583,7 +599,8 @@ h1{
 .showMore{
   position: absolute;
   right: 18px;
-  margin-top: -20px;
+  margin-top: -50px;
+  z-index: 2;
  
 }
 .iconmenu{
@@ -602,6 +619,8 @@ h1{
     max-height: 58px;
     background-color:#0c4b05;
     justify-items: center;
+    margin-top: 5%
+
 }
 .grid-item{
   padding-top: 7px;

@@ -109,13 +109,29 @@ ion-content{
 
 /* landscpae responsive */
 
-@media only screen and (max-device-height : 450px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+@media only screen and (max-device-height : 500px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
 ion-content{ 
    --background: transparent;
    height: calc(100vh - 106px);
  }
  .vegGrid{ 
   margin-top: 2%;
+
 }
+ion-img{
+  width: 210px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+}
+@media only screen and (min-device-height : 500px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+h1{
+  color: white;
+  font-size: 21px;
+}
+
+
 }
 </style>

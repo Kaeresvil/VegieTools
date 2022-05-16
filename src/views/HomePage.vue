@@ -16,6 +16,7 @@
        <div class="content">
 
          <swiper class="slidePage"
+    :paginationClickable="true"
     :modules="modules"
     :autoplay="{
       delay: 10,
@@ -26,19 +27,19 @@
 
    <!-- slide for first page -->
         <swiper-slide>
-          <h1>Slide 1</h1>
            <About/>
         </swiper-slide>
 
 
     <!-- slide for HomePage -->
         <swiper-slide>
-  <HomeContent/>
+          <HomeContent/>
         </swiper-slide>
 
         
         <swiper-slide>
- <ViewCategory v-on:backtoFirstHomePAge="homepage" v-on:backtoAboutPage="aboutpage" />
+            <ViewCategory  v-on:backtoFirstHomePAge="homepage" v-on:backtoAboutPage="aboutpage" v-on:backtoGrid="backGrid"/>
+              <clickBack v-if="isBack" :isback="isBack"/>
         </swiper-slide>
        
 
@@ -69,7 +70,8 @@
             </div>
       </div> <!-- end of footer div -->
 
-  
+
+
 
    </div><!-- end of container div -->
 </template>
@@ -78,6 +80,7 @@
 import {IonImg, IonIcon, } from '@ionic/vue';
 import ViewCategory from './ViewCategory.vue'
 import HomeContent from './HomeContent.vue'
+import clickBack from './ViewCategory.vue'
 import About from './About.vue'
 import {  Autoplay, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -91,6 +94,7 @@ export default {
     ViewCategory,
     HomeContent,
     About,
+    clickBack,
        Swiper,
     SwiperSlide,
 
@@ -109,6 +113,7 @@ export default {
           logo: true,
           heading: true,
           moreContent: false,
+          isBack: false,
       }
   },
     setup() {
@@ -139,7 +144,6 @@ export default {
     
       categoryClick(){
         this.hideCat = true;
-        this.hideFooter = false;
         this.hideCon = false;
         this.hideAbout = false;
         this.hideBack = true;
@@ -162,6 +166,9 @@ export default {
          this.hideAbout = false;
          this.hideCon= false;
          this.isBackClicked= true;
+         this.isBack= true;
+ 
+           
         
       },
       homepage(){
@@ -178,6 +185,11 @@ export default {
         this.hideCon = false;
         this.hideAbout = true;
         this.hideBack = false;
+      },
+
+      backGrid(){
+      this.hideAbout = false;
+      this.hideBack = true;
       }
 
   }
@@ -448,7 +460,7 @@ h4{
 
 /* landscpae responsive */
 
-@media only screen and (max-device-height : 450px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+@media only screen and (max-device-height : 500px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
 .header{
     height: 50px;
 }

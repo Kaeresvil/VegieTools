@@ -49,6 +49,7 @@ export default {
    display: block;
   margin-left: auto;
   margin-right: auto;
+   margin-top: 29%;
 
 }
 h3{
@@ -70,16 +71,15 @@ h4{
 Responsive CSS */
 
 
-@media only screen and (max-device-height : 640px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+
+@media only screen and (max-device-height : 600px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
 .logo{
-  width: 190px;
+  width: 180px;
+  margin-top: 20%;
 
 }
 
-.content{
-  top: 26%;
 
-}
 
 h3{
 font-size: 48px;
@@ -89,16 +89,13 @@ h4{
 
 }
 }
-@media only screen and (min-device-height : 641px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+@media only screen and (min-device-height : 601px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
 .logo{
   width: 210px;
-
+ margin-top: 26%;
 }
 
-.content{
-  top: 29%;
 
-}
 
 h3{
 font-size: 50px;
@@ -108,22 +105,37 @@ h4{
 
 }
 }
-@media only screen and (min-device-height : 800px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+@media only screen and (min-device-height : 700px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
 .logo{
   width: 240px;
+   margin-top: 30%;
 
 }
 
-.content{
-  top: 30%;
 
-}
 
 h3{
 font-size: 54px;
 }
 h4{
     font-size: 29px;
+
+}
+}
+@media only screen and (min-device-height : 800px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+.logo{
+  width: 250px;
+   margin-top: 36%;
+
+}
+
+
+
+h3{
+font-size: 58px;
+}
+h4{
+    font-size: 32px;
 
 }
 }
@@ -135,10 +147,7 @@ h4{
 
 }
 
-.content{
-  top: 28%;
 
-}
 
 h3{
 font-size: 83px;
@@ -170,35 +179,12 @@ h4{
 
 
 
-@media only screen and (max-device-height : 369px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+@media only screen and (max-device-height : 350px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
 .logo{
-  width: 125px;
-
+  width: 115px;
+margin-top: 3%;
 }
 
-.content{
-  top: 2%;
-
-}
-
-h3{
-font-size: 45px;
-}
-h4{
-    font-size: 20px;
-
-}
-}
-@media only screen and (max-device-height : 322px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
-.logo{
-  width: 100px;
-
-}
-
-.content{
-  top: 20%;
-
-}
 
 h3{
 font-size: 40px;
@@ -208,16 +194,13 @@ h4{
 
 }
 }
-@media only screen and (min-device-height : 370px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+
+@media only screen and (min-device-height : 351px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
 .logo{
   width: 150px;
-
+margin-top: 2%;
 }
 
-.content{
-  top: 20%;
-
-}
 
 h3{
 font-size: 45px;
@@ -227,10 +210,25 @@ h4{
 
 }
 }
-@media only screen and (min-device-height : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+@media only screen and (min-device-height : 380px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
 .logo{
- width: 190px;
+  width: 150px;
+margin-top: 3%;
+}
 
+
+h3{
+font-size: 45px;
+}
+h4{
+    font-size: 20px;
+
+}
+}
+@media only screen and (min-device-height : 450px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+.logo{
+ width: 170px;
+margin-top: 3%;
 }
 
 .content{
@@ -239,10 +237,10 @@ h4{
 }
 
 h3{
-font-size: 68px;
+font-size: 58px;
 }
 h4{
-    font-size: 38px;
+    font-size: 30px;
 
 }
 }
@@ -265,10 +263,10 @@ h4{
 
 }
 }
-@media only screen and (min-device-height : 570px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+@media only screen and (min-device-height : 630px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
 .logo{
  width: 255px;
-
+margin-top: 6%;
 }
 
 .content{
@@ -277,13 +275,14 @@ h4{
 }
 
 h3{
-font-size: 60px;
+font-size: 58px;
 }
 h4{
-    font-size: 32px;
+    font-size: 28px;
 
 }
 }
+
 @media only screen and (min-device-height : 670px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
 .logo{
  width: 335px;

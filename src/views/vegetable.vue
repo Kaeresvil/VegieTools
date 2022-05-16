@@ -1,4 +1,5 @@
 <template>
+ <div class="containerContent" >
   <div v-if="showMore" class="showMore"><ion-icon class="iconmenu" @click="showMoreBtn(vegetableName, vegetableid)" src="../../assets/svg/menu-burger.svg"></ion-icon>
    <p  style="margin-top: -5px; color: white; font-size: 13px;">More</p>
  </div>
@@ -74,7 +75,7 @@
       </div>
     
 <!-- Footer -->
-   <div v-if="hideFooter" class="footer">
+   <!-- <div v-if="hideFooter" class="footer">
         <div v-if="hideAbout" class="grid-item">
                 <ion-icon  @click="aboutClick" class="footerbtn" src="../../assets/svg/info.svg"></ion-icon>
                  <p class="ftext" @click="aboutClick" >About</p>
@@ -99,8 +100,8 @@
                 <p class="ftext" @click="TextClick"  >Text Size</p>
                 
             </div>
-      </div> <!-- end of footer div -->
-
+      </div> end of footer div -->
+</div>
   
 </template>
 
@@ -327,6 +328,10 @@ this.vegetableContent = content;
 
 <style scoped>
 
+.containerContent{
+ width: 100%;
+ height: calc(96vh - 155px);
+}
 .button-box {
 	width: 150px;
 	margin-right: 10px;
@@ -573,12 +578,12 @@ h1{
 
 /* For the Vegetable Content */
 .content{
-   height: calc(96vh - 155px);
+   height: calc(96vh - 154px);
 }
 .showMore{
   position: absolute;
   right: 18px;
-  top: 20px;
+  margin-top: -20px;
  
 }
 .iconmenu{

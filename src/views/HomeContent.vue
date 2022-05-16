@@ -41,6 +41,7 @@ export default {
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   width: 100%;
+      
 }
 
 .logo{
@@ -48,6 +49,7 @@ export default {
    display: block;
   margin-left: auto;
   margin-right: auto;
+
 }
 h3{
 
@@ -175,7 +177,7 @@ h4{
 }
 
 .content{
-  top: 20%;
+  top: 2%;
 
 }
 
@@ -232,7 +234,7 @@ h4{
 }
 
 .content{
-  top: 20%;
+  top: 10%;
 
 }
 
@@ -289,7 +291,7 @@ h4{
 }
 
 .content{
-  top: 20%;
+  top: 5%;
 
 }
 

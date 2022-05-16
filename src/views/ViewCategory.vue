@@ -2,7 +2,7 @@
 
       <vegetable v-bind:englishPlants="englishPlants" v-bind:ilocoPlants="ilocoPlants" v-on:backtoFirstHomePAge="homepage" />
   
-   
+
 </template>
 <script>
 import { defineComponent } from 'vue';

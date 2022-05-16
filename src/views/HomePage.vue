@@ -15,25 +15,36 @@
        
        <div class="content">
 
-          <Transition name="fade"> 
-           <div v-if="hideCon">
-           <HomeContent/>
-           </div>
-               </Transition>
-           
-             <Transition name="fade"> 
-             <div v-if="hideCat" class="viewCategory">
-              
-                <ViewCategory v-on:backtoFirstHomePAge="homepage" v-on:backtoAboutPage="aboutpage" />
-               
-            </div>
-             </Transition>
+         <swiper class="slidePage"
+    :modules="modules"
+    :autoplay="{
+      delay: 10,
+    }"
+    @swiper="onSwiper"
+    @slideChange="onSlideChange"
+  >
 
-             <Transition name="fade"> 
-             <div v-if="hideAboutUs" class="about">
-                <About/>
-            </div>
-              </Transition>
+   <!-- slide for first page -->
+        <swiper-slide>
+          <h1>Slide 1</h1>
+           <About/>
+        </swiper-slide>
+
+
+    <!-- slide for HomePage -->
+        <swiper-slide>
+  <HomeContent/>
+        </swiper-slide>
+
+        
+        <swiper-slide>
+ <ViewCategory v-on:backtoFirstHomePAge="homepage" v-on:backtoAboutPage="aboutpage" />
+        </swiper-slide>
+       
+
+
+    </swiper>
+     
        </div><!-- end of content div -->
 
       
@@ -68,6 +79,8 @@ import {IonImg, IonIcon, } from '@ionic/vue';
 import ViewCategory from './ViewCategory.vue'
 import HomeContent from './HomeContent.vue'
 import About from './About.vue'
+import {  Autoplay, A11y } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/vue';
 
 
 export default {
@@ -78,6 +91,8 @@ export default {
     ViewCategory,
     HomeContent,
     About,
+       Swiper,
+    SwiperSlide,
 
   },
   data(){
@@ -95,7 +110,31 @@ export default {
           heading: true,
           moreContent: false,
       }
-  }, methods:{
+  },
+    setup() {
+      
+      const onSlideChange = (swiper) => {
+        swiper.autoplay.running = false;
+
+         if (swiper.activeIndex == 2){
+        swiper.allowSlideNext = false;
+        swiper.allowSlidePrev = true;
+  
+      }else if(swiper.activeIndex == 0){
+         swiper.allowSlideNext = true;
+         swiper.allowSlidePrev = false;
+
+      }else if(swiper.activeIndex == 1){
+         swiper.allowSlideNext = true;
+         swiper.allowSlidePrev = true;
+      }
+      };
+      return {
+        onSlideChange,
+         modules: [ Autoplay, A11y]
+      };
+    },
+  methods:{
    
     
       categoryClick(){
@@ -151,6 +190,10 @@ export default {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+.content{
+  color: black;
+  height: calc(96vh - 110px);
 }
 .main-container{
   position: fixed;

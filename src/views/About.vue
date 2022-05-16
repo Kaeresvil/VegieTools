@@ -73,7 +73,7 @@ p{
 }
 ion-content{ 
    --background: transparent;
-   height: calc(100vh - 150px);
+   height: calc(100vh - 147px);
  }
 
 h1{

@@ -1,16 +1,16 @@
 <template>
    <div class="main-container">
-       <div class="header">
+       <div v-if="header" class="header">
            <div>
              <ion-img v-if="logo" class="logo1" src="../../assets/logoW.png"></ion-img>
             </div>  <!--end of logohead -->
 
              <div>
-             <h6  v-if="heading">VegieTools</h6>
+             <h6 v-if="logo" >VegieTools</h6>
              </div>
               
        </div><!-- end of header div -->
-       <div class="liner">
+       <div v-if="header" class="liner">
        </div><!-- end of liner div -->
        
        <div class="content">
@@ -38,8 +38,8 @@
 
         
         <swiper-slide>
-            <ViewCategory  v-on:backtoFirstHomePAge="homepage" v-on:backtoAboutPage="aboutpage" v-on:backtoGrid="backGrid"/>
-              <clickBack v-if="isBack" :isback="isBack"/>
+            <ViewCategory  ref="vegecomp" v-on:backtoFirstHomePAge="homepage" v-on:backtoAboutPage="aboutpage" v-on:backtoGrid="backGrid"  v-on:backtoAboutBTN="backAbout"/>
+         
         </swiper-slide>
        
 
@@ -55,9 +55,9 @@
                 <ion-icon  @click="aboutClick" class="footerbtn" src="../../assets/svg/info.svg"></ion-icon>
                  <p  @click="aboutClick" >About</p>
             </div>
-           <div v-if="hideBack" class="grid-item">
-                <ion-icon @click="backClick" class="footerbtn" src="../../assets/svg/arrowBack.svg"></ion-icon>
-                 <p  @click="backClick" >Back</p>
+           <div v-if="vegegrid" class="grid-item">
+                <ion-icon @click="Click" class="ftext" src="../../assets/svg/arrowBack.svg"></ion-icon>
+                 <p class="ftext"  @click="backClick" >Back</p>
             </div>
             <div class="grid-item">
                 <ion-icon @click="homeClick"  class="footerbtn" src="../../assets/svg/home.svg"></ion-icon>
@@ -80,7 +80,6 @@
 import {IonImg, IonIcon, } from '@ionic/vue';
 import ViewCategory from './ViewCategory.vue'
 import HomeContent from './HomeContent.vue'
-import clickBack from './ViewCategory.vue'
 import About from './About.vue'
 import {  Autoplay, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -94,7 +93,6 @@ export default {
     ViewCategory,
     HomeContent,
     About,
-    clickBack,
        Swiper,
     SwiperSlide,
 
@@ -114,6 +112,9 @@ export default {
           heading: true,
           moreContent: false,
           isBack: false,
+          vegegrid: false,
+          header: true,
+        
       }
   },
     setup() {
@@ -160,17 +161,18 @@ export default {
         this.hideCon = false;
         this.hideCat = false;
       },
-      backClick(){
-        this.hideCat = true;
-        this.hideBack = true;
-         this.hideAbout = false;
-         this.hideCon= false;
-         this.isBackClicked= true;
-         this.isBack= true;
+      // backClick(){
+      //   // this.hideCat = true;
+      //   // this.hideBack = true;
+      //   //  this.hideAbout = false;
+      //   //  this.hideCon= false;
+      //   //  this.isBackClicked= true;
+      //   //  this.isBack= true;
+      //   //  this.$emit('clickBack')
  
            
         
-      },
+      // },
       homepage(){
           this.hideFooter = true;
           this.hideCat = false;
@@ -189,7 +191,13 @@ export default {
 
       backGrid(){
       this.hideAbout = false;
-      this.hideBack = true;
+      this.vegegrid = true;
+      this.header = false;
+      },
+      backAbout(){
+      this.hideAbout = true;
+      this.vegegrid = false;
+      this.header = true;
       }
 
   }
@@ -207,6 +215,10 @@ export default {
   color: black;
   height: calc(96vh - 110px);
 }
+.ftext{
+  color:#0c4b05;
+  width: 0;
+}
 .main-container{
   position: fixed;
   width: 100%;
@@ -219,6 +231,7 @@ export default {
     position: relative;
 } */
 .header{
+  position: relative;
     display:flex;
     width: 100%;
     height: 78px;

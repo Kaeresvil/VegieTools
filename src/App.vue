@@ -12,6 +12,7 @@ import { Plugins } from '@capacitor/core';
 const { App } = Plugins;
 
 
+
 export default defineComponent({
   name: 'App',
   components: {

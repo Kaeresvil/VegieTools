@@ -1,8 +1,23 @@
 <template>
- <div class="containerContent" >
-  <div v-if="showMore" class="showMore"><ion-icon class="iconmenu" @click="showMoreBtn(vegetableName, vegetableid)" src="../../assets/svg/menu-burger.svg"></ion-icon>
+      
+       
+ <div v-if="showMore"  class="showMore"><ion-icon class="iconmenu" @click="showMoreBtn(vegetableName, vegetableid)" src="../../assets/svg/menu-burger.svg"></ion-icon>
    <p  style="margin-top: -5px; color: white; font-size: 13px;">More</p>
  </div>
+
+ <div class="containerContent" >
+  <div v-if="header" class="header">
+           <div>
+             <ion-img  class="logo1" src="../../assets/logoW.png"></ion-img>
+            </div>  <!--end of logohead -->
+
+             <div>
+             <h6 class="vegeTitle" >VegieTools</h6>
+             </div>
+              
+       </div><!-- end of header div -->
+       <div v-if="header" class="liner">
+       </div><!-- end of liner div -->
 <!-- //Header -->
   <div v-if="ContentisActive" class="Catheader">
      <h2 v-if="catHeader" >Vegetables</h2>
@@ -77,37 +92,17 @@
 
 </div>
 
-<!-- Footer -->
-   <!-- <div v-if="hideFooter" class="footer">
-        <div v-if="hideAbout" class="grid-item">
-                <ion-icon  @click="aboutClick" class="footerbtn" src="../../assets/svg/info.svg"></ion-icon>
-                 <p class="ftext" @click="aboutClick" >About</p>
-            </div>
-           <div v-if="hidebackbtn" class="grid-item">
-                <ion-icon @click="backClick" class="footerbtn" src="../../assets/svg/arrowBack.svg"></ion-icon>
-                 <p class="ftext" @click="backClick" >Back</p>
-            </div>
-           
-            <div class="grid-item">
-                <ion-icon @click="homeClick"  class="footerbtn" src="../../assets/svg/home.svg"></ion-icon>
-                 <p class="ftext" @click="homeClick" >Home</p>
+
+    <div v-if="hideBack" class="backbtn">
+                <ion-icon @click="Click" class="footerbtn" src="../../assets/svg/arrowBack.svg"></ion-icon>
+                 <p  class="ftext" @click="Click" >Back</p>
             </div>
 
-             <div v-if="isContent" class="grid-item">
-                <ion-icon  @click="categoryClick" class="footerbtn" src="../../assets/svg/apps.svg"></ion-icon>
-                <p  class="ftext" @click="categoryClick"  >Vegetables</p>
-                
-            </div>
-              <div v-if="isFont" class="grid-item">
-                <ion-icon  @click="TextClick" class="footerbtn" src="../../assets/svg/fontSize.svg"></ion-icon>
-                <p class="ftext" @click="TextClick"  >Text Size</p>
-                
-            </div>
-      </div>  -->
   
 </template>
 
 <script>
+import {IonImg, IonIcon, } from '@ionic/vue';
 import VegetableContent from './categories/H5Pstandalone.vue'
 import MoreView from './moreCategory.vue'
 
@@ -123,14 +118,13 @@ export default {
       type: Array,
       required: true
     },
-    isback: {
-      type: Boolean,
-      required: true
-    },
   },
     components: {
 VegetableContent,
-MoreView
+MoreView,
+IonImg,
+IonIcon
+
     },
     data(){
        
@@ -145,6 +139,7 @@ MoreView
             isPasstoback: false,
             grid: true,
             isRight: false,
+            header: false,
 
             // show moreContent
             showMore: false,
@@ -162,7 +157,7 @@ MoreView
             count: 0,
             hideAbout: true,
             isContent: true,
-            hidebackbtn: false,
+            hideBack: false,
               hideNav: false,
               isFont: false,
           fSize: 20,
@@ -177,14 +172,7 @@ MoreView
       return {fontSize: this.fSize + 'px'}
     }
     },
-    mounted(){
   
-      
-        this.Click();
-         this.isPass = false;
-          // console.log("back Clicked")
-      
-    },
   
     methods: {
 
@@ -231,15 +219,17 @@ MoreView
              this.count = 0;
             this.hidebackbtn = true;
             this.hideAbout = false;
+            this.hideBack = true;
             this.isContent = false;
             this.isFont = true;
+            this.header = true;
             this.$emit('backtoGrid');
           
          
          },
         //  backk to vegetable grid
         Click(){
-
+   
                     this.isPasstoback = true;
                     this.isPass = false;
                     this.isPassMoreContent = false;
@@ -253,7 +243,10 @@ MoreView
                     this.hideAbout = true;
                      this.isContent = true;
                    this.isFont = false;
-        this. backTextSize();
+                    this.hideBack = false;
+                    this.header = false;
+                      this.$emit('backtoAboutBTN');
+        // this. backTextSize();
 
                    
                   
@@ -294,24 +287,24 @@ MoreView
       this. backTextSize();
   },
 
-  moreContentBack(){
-this.showMore = true;
-this.clickShowMore = false;
+        moreContentBack(){
+      this.showMore = true;
+      this.clickShowMore = false;
 
-  },
+        },
 
-hideExistContent(content, title){
-  this.isMoreContent();
-  this.moreContentBack();
+      hideExistContent(content, title){
+        this.isMoreContent();
+        this.moreContentBack();
 
-  this.isPass = false;
-this.vegetableContent = content;
-  this.breadcrumbs = title;
-   this.$nextTick(() => {
-        this.isPass = true;
-      });
-  console.log(content)
-},
+        this.isPass = false;
+      this.vegetableContent = content;
+        this.breadcrumbs = title;
+        this.$nextTick(() => {
+              this.isPass = true;
+            });
+        console.log(content)
+      },
 
   ExistingMoreContent(){
             this.vegetableContent = this.existingMorecontent;
@@ -342,11 +335,61 @@ this.vegetableContent = content;
 </script>
 
 <style scoped>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.header{
+  position: relative;
+    display:flex;
+    width: 100%;
+    height: 78px;
+    background-color:#0c4b05;
+}
+.iconmenu{
+    width: 33px;
+    height: 33px;
+
+}
+.liner{
+    width: 100%;
+    height: 8px;
+    background-color: gold;
+}
+.header > div{
+    height: 68px;
+}
+.logo1{
+    width: 63px;
+    height: 63px;
+    padding-left:2px;
+  
+}
+
+.vegeTitle{
+   font-family: 'Bebas Neue', sans-serif;
+   font-size: 22px;
+   color:rgb(255, 255, 255);
+   text-align: center;
+   font-weight:800;
+   padding-top: 20px;
+}
+
 
 .containerContent{
+  position: relative;
  width: 100%;
- height: calc(96vh - 155px);
+ height: calc(100vh - 0px);
 
+}
+.backbtn{
+  width: 33%;
+  background: none;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left:0;
 }
 .button-box {
 	width: 150px;
@@ -405,11 +448,7 @@ this.vegetableContent = content;
 
 
 /* End of toggle button */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 .navigationsize{
    border: 1px solid black;
   position: absolute;
@@ -561,7 +600,7 @@ h2{
 /* vegetable grid */
 ion-content{ 
    --background: transparent;
-  height: calc(100vh - 211px);
+  height: calc(100vh - 217px);
  }
 
 .vegGrid{
@@ -594,13 +633,16 @@ h1{
 
 /* For the Vegetable Content */
 .content{
-   height: calc(96vh - 154px);
+   height: calc(96vh - 156px);
 }
 .showMore{
   position: absolute;
-  right: 18px;
-  margin-top: -50px;
-  z-index: 2;
+  top: 0;
+  right: 0;
+  margin-top: 12px;
+  margin-right: 8px;
+  z-index: 1;
+
  
 }
 .iconmenu{
@@ -644,6 +686,12 @@ h1{
 Responsive CSS */
 
 
+@media only screen and (max-device-width : 304px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+.backbtn{
+  width: 40%;
+
+}
+}
 @media only screen and (max-device-height : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
 .header{
     height: 55px;
@@ -663,6 +711,11 @@ Responsive CSS */
     height: 25px;
 }
 
+
+.ftext{
+    font-size: 15px;
+
+}
 p{
     font-size: 15px;
 }
@@ -676,7 +729,8 @@ li{
 
 }
  .content{
-    height: calc(96vh - 131px);
+    height: calc(96vh - 134px);
+   
 }
 
 .showMore{
@@ -715,19 +769,27 @@ ion-content{
 
 /* landscpae responsive */
 
-@media only screen and (max-device-height : 450px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+@media only screen and (max-device-height : 500px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
 .header{
     height: 50px;
+}
+.header > div{
+    height: 50px;
+
 }
 .liner{
     height: 6px;
 }
 .logo1{
-    width: 38px;
+  margin-top: -9px;
+    width: 39px;
 }
 h6{
    font-size: 17px;
-  padding-top: 8px;
+}
+.vegeTitle{
+font-size: 17px;
+  margin-top: -8px;
 }
 .footer{
     height: 50px;
@@ -736,17 +798,22 @@ h6{
     width: 22x;
     height: 22px;
 }
+.containerContent{
+ height: calc(100vh - 0px);
+
+
+}
 
 .ftext{
     font-size: 17px;
 }
  .content{
-    height: calc(96vh - 131px);
+    height: calc(96vh - 125px);
 }
 
 .showMore{
-  right: 18px;
-  top: 13px;
+  right: 10px;
+  margin-top: 4px;
 }
 .iconmenu{
     width: 27px;
@@ -754,7 +821,7 @@ h6{
 
 }
 ion-content{ 
-  height: calc(100vh - 175px);
+  height: calc(100vh - 177px);
  }
 }
 </style>

@@ -102,7 +102,7 @@ h1{
 @media only screen and (max-device-height : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
 ion-content{ 
    --background: transparent;
-   height: calc(100vh - 111px);
+   height: calc(100vh - 115px);
  }
 
 }

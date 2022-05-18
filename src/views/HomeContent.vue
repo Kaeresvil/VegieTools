@@ -4,7 +4,10 @@
      <ion-img class="logo" src="../../assets/veg.png"></ion-img>
            <i><h3>VegieTools</h3></i>
            <h4>English and Iloco Version</h4>
+         
 </div>
+
+
 
 </template>
 
@@ -144,7 +147,7 @@ h4{
 @media only screen and (min-device-height : 1000px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
 .logo{
  width: 330px;
-
+ margin-top: 27%;
 }
 
 

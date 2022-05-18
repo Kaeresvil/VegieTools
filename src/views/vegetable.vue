@@ -93,10 +93,10 @@
 </div>
 
 
-    <div v-if="hideBack" class="backbtn">
-                <ion-icon @click="Click" class="footerbtn" src="../../assets/svg/arrowBack.svg"></ion-icon>
+    <div v-if="hideback" class="backbtn">
+                <ion-icon  id="backbtn" @click="Click" class="footerbtn" src="../../assets/svg/arrowBack.svg"></ion-icon>
                  <p  class="ftext" @click="Click" >Back</p>
-            </div>
+    </div>
 
   
 </template>
@@ -359,12 +359,14 @@ IonIcon
 }
 .header > div{
     height: 68px;
+        padding-top:2px;
 }
 .logo1{
     width: 63px;
     height: 63px;
     padding-left:2px;
-  
+
+    
 }
 
 .vegeTitle{
@@ -373,7 +375,7 @@ IonIcon
    color:rgb(255, 255, 255);
    text-align: center;
    font-weight:800;
-   padding-top: 20px;
+   padding-top: 22px;
 }
 
 
@@ -381,7 +383,7 @@ IonIcon
   position: relative;
  width: 100%;
  height: calc(100vh - 0px);
-
+ z-index: 0;
 }
 .backbtn{
   width: 33%;

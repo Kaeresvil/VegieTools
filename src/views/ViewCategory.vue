@@ -24,7 +24,8 @@ export default defineComponent({
 
     
      
-},data(){
+},
+data(){
       return{
         // for header
         clickBack: this.isBack,

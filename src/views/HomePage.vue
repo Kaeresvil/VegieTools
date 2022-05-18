@@ -38,11 +38,11 @@
 
         
         <swiper-slide>
-            <ViewCategory  ref="vegecomp" v-on:backtoFirstHomePAge="homepage" v-on:backtoAboutPage="aboutpage" v-on:backtoGrid="backGrid"  v-on:backtoAboutBTN="backAbout"/>
+            <ViewCategory  v-on:backtoFirstHomePAge="homepage" v-on:backtoAboutPage="aboutpage" v-on:backtoGrid="backGrid"  v-on:backtoAboutBTN="backAbout" :item="item" ref="form"/>
          
         </swiper-slide>
        
-
+ 
 
     </swiper>
      
@@ -55,16 +55,22 @@
                 <ion-icon  @click="aboutClick" class="footerbtn" src="../../assets/svg/info.svg"></ion-icon>
                  <p  @click="aboutClick" >About</p>
             </div>
-           <div v-if="vegegrid" class="grid-item">
+
+              <div v-if="vegegrid" class="grid-item">
+                <ion-icon type="submit" id="backbtn" @click.prevent="click" class="footerbtn" src="../../assets/svg/arrowBack.svg"></ion-icon>
+                 <p   @click="Click" >Back</p>
+    </div>
+
+           <!-- <div v-if="vegegrid" class="grid-item">
                 <ion-icon @click="Click" class="ftext" src="../../assets/svg/arrowBack.svg"></ion-icon>
                  <p class="ftext"  @click="backClick" >Back</p>
-            </div>
+            </div> -->
             <div class="grid-item">
                 <ion-icon @click="homeClick"  class="footerbtn" src="../../assets/svg/home.svg"></ion-icon>
                  <p  @click="homeClick" >Home</p>
             </div>
             <div  class="grid-item">
-                <ion-icon  @click="categoryClick" class="footerbtn" src="../../assets/svg/apps.svg"></ion-icon>
+                <ion-icon @click="sampleSwipe.slideNext()" class="footerbtn" src="../../assets/svg/apps.svg"></ion-icon>
                 <p  @click="categoryClick" >Vegetables</p>
                 
             </div>
@@ -82,7 +88,8 @@ import ViewCategory from './ViewCategory.vue'
 import HomeContent from './HomeContent.vue'
 import About from './About.vue'
 import {  Autoplay, A11y } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Swiper, SwiperSlide , useSwiper} from 'swiper/vue';
+
 
 
 export default {
@@ -93,8 +100,9 @@ export default {
     ViewCategory,
     HomeContent,
     About,
-       Swiper,
+    Swiper,
     SwiperSlide,
+
 
   },
   data(){
@@ -118,7 +126,12 @@ export default {
       }
   },
     setup() {
-      
+
+    const sampleSwipe = useSwiper(
+      console.log("REady")
+    );
+
+
       const onSlideChange = (swiper) => {
         swiper.autoplay.running = false;
 
@@ -134,15 +147,24 @@ export default {
          swiper.allowSlideNext = true;
          swiper.allowSlidePrev = true;
       }
+ 
       };
+
+
       return {
+        sampleSwipe,
         onSlideChange,
          modules: [ Autoplay, A11y]
       };
     },
+
   methods:{
    
-    
+    click(){
+
+      this.$refs.form.submit()
+
+    },
       categoryClick(){
         this.hideCat = true;
         this.hideCon = false;
@@ -193,6 +215,7 @@ export default {
       this.hideAbout = false;
       this.vegegrid = true;
       this.header = false;
+
       },
       backAbout(){
       this.hideAbout = true;
@@ -223,7 +246,8 @@ export default {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: url("/public/assets/VegieTools.png"); 
+  background: url("/public/assets/VegieTools.png");
+  z-index: 0; 
   background-size:100% 100%;
 }
 /* .content{

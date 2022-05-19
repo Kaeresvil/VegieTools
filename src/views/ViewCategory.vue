@@ -1,6 +1,6 @@
 <template >
 
-      <vegetable v-bind:englishPlants="englishPlants" v-bind:ilocoPlants="ilocoPlants" v-on:backtoFirstHomePAge="homepage"  :isback="clickBack" />
+      <vegetable v-bind:englishPlants="englishPlants" v-bind:ilocoPlants="ilocoPlants" v-on:backtoFirstHomePAge="homepage"  :Trigger="isBAck" :TriggerMore="isMore" />
   
 
 </template>
@@ -11,24 +11,36 @@ import vegetable from './vegetable.vue'
 
 export default defineComponent({
      name: 'ViewCategory',
-       props:{
-        isBack: {
-      type: Boolean,
-      required: true
-    },
-
-    },
+       props: [
+         'clickBack',
+         'clickMore'
+         ],
   components: { 
      vegetable,
   
-
+},
+methods: {
+  backClick() {
+    this.isBAck += 1;
+  },
+  moreClick() {
+    this.isMore += 1;
+  },
+},
+watch: { 
+    clickBack: function() {
+      this.backClick()
+    },
+    clickMore: function() {
+      this.moreClick()
+    },
     
-     
 },
 data(){
       return{
         // for header
-        clickBack: this.isBack,
+        isBAck: 0,
+        isMore: 0,
         englishPlants:[
           {
             id:'1',

@@ -436,8 +436,8 @@ ion-content{
    border: 1px solid black;
   position: absolute;
   width: 90%;
-  height: 50%;
-  top: 53%;  
+  height: 35%;
+  top: 40%;  
   left: 50%; 
   transform: translate(-50%, -50%);                                 
   background-color: #000000;

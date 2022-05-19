@@ -1,36 +1,19 @@
 <template>
-      
-       
- <div v-if="showMore"  class="showMore"><ion-icon class="iconmenu" @click="showMoreBtn(vegetableName, vegetableid)" src="../../assets/svg/menu-burger.svg"></ion-icon>
-   <p  style="margin-top: -5px; color: white; font-size: 13px;">More</p>
- </div>
 
  <div class="containerContent" >
-  <div v-if="header" class="header">
-           <div>
-             <ion-img  class="logo1" src="../../assets/logoW.png"></ion-img>
-            </div>  <!--end of logohead -->
+   <!-- for LAbel vegetable and nateng  -->
+  <div v-if="ContentisActive" class="Catheader"> 
 
-             <div>
-             <h6 class="vegeTitle" >VegieTools</h6>
-             </div>
-              
-       </div><!-- end of header div -->
-       <div v-if="header" class="liner">
-       </div><!-- end of liner div -->
-<!-- //Header -->
-  <div v-if="ContentisActive" class="Catheader">
      <h2 v-if="catHeader" >Vegetables</h2>
      <h2 v-if="catHeaderIloco">Natnateng</h2>
 
-
-<div class="button-box">
+<!-- Toogle button For Select Language -->
+    <div class="button-box">
 			<div id="btn" :style="isRight ? { 'left': '69px'} : null"></div>
 			<button type="button" class="toggle-btn1" @click="leftClick()">English</button>
 			<button type="button" class="toggle-btn2" @click="rightClick()">Iloco</button>
 		</div>
   
-    
    </div>
 <!-- Vegetable Name -->
     <div v-if="isActive" class="Catheader2">
@@ -47,7 +30,6 @@
   <ion-content v-if="grid"
      :scroll-events="true"
    >
-
   <div  v-if="EnglishGrid" class="vegGrid">
 
       <div  v-for="(plants, index) in englishPlants" :key="index">
@@ -67,13 +49,12 @@
 
          </div>
        </div>
-
-       
+    
   </ion-content>
 
   <!-- H5P StandAlone Content For Vegetable -->
   
- <VegetableContent v-if="isPass" :selectcontent="vegetableContent"   :num="count" class="content"
+ <VegetableContent v-if="isPass" :selectcontent="vegetableContent" :num="count" class="content"
   />
 
  
@@ -118,6 +99,12 @@ export default {
       type: Array,
       required: true
     },
+    Trigger: {
+      type: Number
+    },
+    TriggerMore: {
+      type: Number
+    },
   },
     components: {
 VegetableContent,
@@ -136,7 +123,6 @@ IonIcon
             breadcrumbs: '',
             existingMorecontent: '',
             isPass: false,
-            isPasstoback: false,
             grid: true,
             isRight: false,
             header: false,
@@ -153,10 +139,6 @@ IonIcon
 
             IlocoGrid: false,
             EnglishGrid: true,
-            hideFooter: false,
-            count: 0,
-            hideAbout: true,
-            isContent: true,
             hideBack: false,
               hideNav: false,
               isFont: false,
@@ -167,28 +149,36 @@ IonIcon
       
 
     },
+  
     computed:{
     changeSize(){
       return {fontSize: this.fSize + 'px'}
     }
     },
-  
+
+watch: { 
+    Trigger: function() {
+      this.Click();
+     
+    },
+    TriggerMore: function() {
+      this.showMoreBtn();
+     
+    }
+},
   
     methods: {
+    
+      leftClick() {
+        this.isRight = false;
+        this.english();
 
- leftClick() {
-  this.isRight = false;
-  this.english();
+      },
+      rightClick() {
+        this.isRight =true;
+        this.iloco();
 
-},
- rightClick() {
-  this.isRight =true;
-  this.iloco();
-
-},
-
-     
-
+      },
      iloco(){
            this.catHeader = false;
            this.catHeaderIloco = true;
@@ -208,7 +198,6 @@ IonIcon
           viewDetails(content, title, subtitle, id){
             this.vegetableContent = content;
             this.isPass = true;
-            this.isPasstoback = false;
             this.showMore = true;
             this.grid = false;
             this.ContentisActive = false;
@@ -229,7 +218,6 @@ IonIcon
          },
         //  backk to vegetable grid
         Click(){
-   
                     this.isPasstoback = true;
                     this.isPass = false;
                     this.isPassMoreContent = false;
@@ -245,10 +233,7 @@ IonIcon
                    this.isFont = false;
                     this.hideBack = false;
                     this.header = false;
-                      this.$emit('backtoAboutBTN');
-        // this. backTextSize();
-
-                   
+                    this.$emit('backtoAboutBTN');      
                   
       },
         isMoreContent(){
@@ -263,7 +248,7 @@ IonIcon
       },
       homeClick(){
   
-           this.$emit('backtoFirstHomePAge');
+        this.$emit('backtoFirstHomePAge');
         this.hideFooter = false;
         this.backClick();
         this. backTextSize();
@@ -277,12 +262,12 @@ IonIcon
       },
   
   // Show More Content Categories
-  showMoreBtn(vegetableName, vegetableid){
+  showMoreBtn(){
     this.clickShowMore = true;
     this.showMore = false;
      this.isPassMoreContent = false;
-      this.vegetableTitle = vegetableName;
-      this.vegetableid = vegetableid;
+      this.vegetableTitle = this.vegetableName;
+      // this.vegetableid = this.vegetableid;
      this.ExistingMoreContent();
       this. backTextSize();
   },

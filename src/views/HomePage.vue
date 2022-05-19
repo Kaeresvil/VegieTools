@@ -1,32 +1,37 @@
 <template>
    <div class="main-container">
-       <div v-if="header" class="header">
+       <div  class="header">
            <div>
-             <ion-img v-if="logo" class="logo1" src="../../assets/logoW.png"></ion-img>
+             <ion-img  class="logo1" src="../../assets/logoW.png"></ion-img>
             </div>  <!--end of logohead -->
 
              <div>
-             <h6 v-if="logo" >VegieTools</h6>
+             <h6  >VegieTools</h6>
              </div>
+
+                    
+              <div v-if="showMore" class="showMore"><ion-icon class="iconmenu" @click="showMoreBtn(1)" src="../../assets/svg/menu-burger.svg"></ion-icon>
+                <p @click="showMoreBtn(1)" class="more" style="margin-top: -5px; color: white; font-size: 13px;">More</p>
+              </div>
               
        </div><!-- end of header div -->
-       <div v-if="header" class="liner">
+       <div  class="liner">
        </div><!-- end of liner div -->
        
-       <div class="content">
-
-         <swiper class="slidePage"
-    :paginationClickable="true"
+<div class="content">
+         <swiper ref="form" :options="swiperOptionThumbs" class="slidePage"
     :modules="modules"
+    :slideToClickedSlide= true
     :autoplay="{
       delay: 10,
     }"
-    @swiper="onSwiper"
+   @swiper="onSwiper"
     @slideChange="onSlideChange"
+
   >
 
-   <!-- slide for first page -->
-        <swiper-slide>
+   <!-- slide for About page -->
+        <swiper-slide >
            <About/>
         </swiper-slide>
 
@@ -36,46 +41,38 @@
           <HomeContent/>
         </swiper-slide>
 
-        
+         <!-- slide for CategoryPage -->
         <swiper-slide>
-            <ViewCategory  v-on:backtoFirstHomePAge="homepage" v-on:backtoAboutPage="aboutpage" v-on:backtoGrid="backGrid"  v-on:backtoAboutBTN="backAbout" :item="item" ref="form"/>
+            <ViewCategory  :clickBack="trigger"  :clickMore="triggershow" v-on:backtoGrid="backGrid"  v-on:backtoAboutBTN="backAbout" />
          
         </swiper-slide>
        
  
 
     </swiper>
-     
-       </div><!-- end of content div -->
+    </div> 
 
-      
-
-       <div v-if="hideFooter" class="footer">
+       <div  class="footer">
            <div v-if="hideAbout" class="grid-item">
-                <ion-icon  @click="aboutClick" class="footerbtn" src="../../assets/svg/info.svg"></ion-icon>
-                 <p  @click="aboutClick" >About</p>
+                <ion-icon  @click="aboutpage(0)" v-bind:class="{'isActive':isindex0}" class="footerbtn" src="../../assets/svg/info.svg"></ion-icon>
+                 <p  @click="aboutpage(0)" >About</p>
             </div>
 
               <div v-if="vegegrid" class="grid-item">
-                <ion-icon type="submit" id="backbtn" @click.prevent="click" class="footerbtn" src="../../assets/svg/arrowBack.svg"></ion-icon>
-                 <p   @click="Click" >Back</p>
-    </div>
+                  <ion-icon type="submit" id="backbtn" @click="click(1)" class="footerbtn" src="../../assets/svg/arrowBack.svg"></ion-icon>
+                 <p   @click="click(1)" >Back</p>
+            </div>
 
-           <!-- <div v-if="vegegrid" class="grid-item">
-                <ion-icon @click="Click" class="ftext" src="../../assets/svg/arrowBack.svg"></ion-icon>
-                 <p class="ftext"  @click="backClick" >Back</p>
-            </div> -->
             <div class="grid-item">
-                <ion-icon @click="homeClick"  class="footerbtn" src="../../assets/svg/home.svg"></ion-icon>
-                 <p  @click="homeClick" >Home</p>
+                <ion-icon @click="homeClick(1)" class="footerbtn" src="../../assets/svg/home.svg"></ion-icon>
+                 <p  @click="homeClick(1)" >Home</p>
             </div>
             <div  class="grid-item">
-                <ion-icon @click="sampleSwipe.slideNext()" class="footerbtn" src="../../assets/svg/apps.svg"></ion-icon>
-                <p  @click="categoryClick" >Vegetables</p>
+                <ion-icon @click="categoryClick(2)" class="footerbtn" src="../../assets/svg/apps.svg"></ion-icon>
+                <p  @click="categoryClick(2)" >Vegetables</p>
                 
             </div>
       </div> <!-- end of footer div -->
-
 
 
 
@@ -84,15 +81,17 @@
 
 <script>
 import {IonImg, IonIcon, } from '@ionic/vue';
+import {defineComponent} from 'vue';
 import ViewCategory from './ViewCategory.vue'
 import HomeContent from './HomeContent.vue'
 import About from './About.vue'
 import {  Autoplay, A11y } from 'swiper';
-import { Swiper, SwiperSlide , useSwiper} from 'swiper/vue';
+import { Swiper, SwiperSlide} from 'swiper/vue';
 
-
-
-export default {
+import 'swiper/css';
+import '@ionic/vue/css/ionic-swiper.css';
+import 'swiper/css/pagination';
+export default defineComponent({
      name: 'HomePage',
    components: {
     IonIcon,
@@ -106,34 +105,26 @@ export default {
 
   },
   data(){
+ 
       return{
           show: true,
           hide: false,
-          hideFooter: true,
-          hideCat: false,
-          hideAboutUs: false,
-          hideCon: true,
           hideAbout: true,
-          hideClick: false,
-          isBackClicked: false,
-          logo: true,
-          heading: true,
-          moreContent: false,
-          isBack: false,
           vegegrid: false,
-          header: true,
+          showMore: false,
+          isindex0: false,
+          trigger: 0,
+          triggershow: 0,
+          swiper: null,
+         
         
-      }
+      };
   },
     setup() {
 
-    const sampleSwipe = useSwiper(
-      console.log("REady")
-    );
-
-
       const onSlideChange = (swiper) => {
         swiper.autoplay.running = false;
+      
 
          if (swiper.activeIndex == 2){
         swiper.allowSlideNext = false;
@@ -152,80 +143,54 @@ export default {
 
 
       return {
-        sampleSwipe,
         onSlideChange,
-         modules: [ Autoplay, A11y]
+         modules: [  Autoplay, A11y]
       };
     },
+  
 
   methods:{
-   
-    click(){
 
-      this.$refs.form.submit()
-
+     onSwiper(swiper) {
+      this.swiper = swiper;
     },
-      categoryClick(){
-        this.hideCat = true;
-        this.hideCon = false;
-        this.hideAbout = false;
-        this.hideBack = true;
-        this.hideAboutUs = false;
+   
+    click(incre){
+      this.trigger += 1 ;
+    },
+   showMoreBtn(incre){
+      this.triggershow += 1 ;
+    },
+      categoryClick(index){
+         this.swiper.slideTo(index);
       },
-      homeClick(){
-          this.hideCat = false;
-        this.hideCon = true;
-         this.hideAboutUs = false;
-        this.hideBack = false;
+      homeClick(index){
+
+         this.swiper.slideTo(index);
       },
-      aboutClick(){
-          this.hideAboutUs = true;
-        this.hideCon = false;
-        this.hideCat = false;
-      },
-      // backClick(){
-      //   // this.hideCat = true;
-      //   // this.hideBack = true;
-      //   //  this.hideAbout = false;
-      //   //  this.hideCon= false;
-      //   //  this.isBackClicked= true;
-      //   //  this.isBack= true;
-      //   //  this.$emit('clickBack')
- 
-           
+    aboutpage(index){
+       this.swiper.slideTo(index);
         
-      // },
-      homepage(){
-          this.hideFooter = true;
-          this.hideCat = false;
-          this.hideCon = true;
-          this.hideAbout = true;
-          this.hideBack = false;
-      },
-    aboutpage(){
-        this.hideFooter = true;
-        this.hideCat = false;
-        this.hideAboutUs = true;
-        this.hideCon = false;
-        this.hideAbout = true;
-        this.hideBack = false;
       },
 
       backGrid(){
       this.hideAbout = false;
       this.vegegrid = true;
-      this.header = false;
+      this.showMore = true;
+     this.swiper.allowSlidePrev = false;
 
       },
       backAbout(){
       this.hideAbout = true;
       this.vegegrid = false;
-      this.header = true;
+      this.showMore = false;
+       this.swiper.allowSlidePrev = true;
+
       }
 
-  }
-  
 }
+  
+})
 </script>
 
 <style scoped>
@@ -234,13 +199,10 @@ export default {
     margin: 0;
     box-sizing: border-box;
 }
+
 .content{
-  color: black;
-  height: calc(96vh - 110px);
-}
-.ftext{
-  color:#0c4b05;
-  width: 0;
+    height: calc(96vh - 120px);
+  z-index: 1;
 }
 .main-container{
   position: fixed;
@@ -250,23 +212,22 @@ export default {
   z-index: 0; 
   background-size:100% 100%;
 }
-/* .content{
-    height: calc(96vh - 151px);
-    position: relative;
-} */
+
 .header{
   position: relative;
-    display:flex;
+    
     width: 100%;
     height: 78px;
     background-color:#0c4b05;
 }
 .showMore{
-  position: absolute;
-  right: 15px;
-  top: 19px;
+position: absolute;
+top: 0;
+right: 0;
 }
 .iconmenu{
+margin-left: 32px;
+margin-top: 15px;
     width: 33px;
     height: 33px;
 
@@ -299,10 +260,12 @@ export default {
     width: 100%;
     height: 60px;
     background-color:#0c4b05;
+    z-index: 1;
     justify-items: center;
 }
 .grid-item{
   padding-top: 7px;
+  text-align: center;
 }
 h1{
     position: absolute;
@@ -313,19 +276,24 @@ h1{
     color:#ffffff; 
 }
 h6{
+  position: absolute;
+  top: 0;
     font-family: 'Bebas Neue', sans-serif;
    font-size: 22px;
    color:rgb(255, 255, 255);
    text-align: center;
    font-weight:800;
-   padding-top: 20px;
+   padding-top: 27px;
+   padding-left: 67px;
 
 }
 
 .footerbtn{ 
     width: 27px;
     height: 27px;
+
 }
+
 p{
     color:#ffffff;
     font-size: 18px;
@@ -351,6 +319,8 @@ p{
 ion-button{
     background: none;
 }
+
+
 
 /* CSS for the Menu Container Transition */
 .fade-enter-active,
@@ -382,7 +352,8 @@ Responsive CSS */
 }
 h6{
    font-size: 18px;
-  padding-top: 14px;
+  padding-top: 16px;
+  padding-left: 45px;
 }
 .footer{
     height: 53px;
@@ -395,6 +366,14 @@ h6{
 p{
     font-size: 15px;
 }
+.iconmenu{
+margin-top: 2px;
+margin-left: 34px;
+    width: 30px;
+    height: 30px;
+
+}
+
 }
 
 @media only screen and (min-device-height : 481px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
@@ -509,7 +488,8 @@ h4{
 }
 h6{
    font-size: 17px;
-  padding-top: 8px;
+  padding-top: 16px;
+  padding-left: 40px;
 }
 .footer{
     height: 50px;
@@ -521,6 +501,13 @@ h6{
 
 p{
     font-size: 17px;
+}
+.iconmenu{
+margin-top: 1px;
+margin-left: 34px;
+    width: 28px;
+    height: 28px;
+
 }
 }
 </style>

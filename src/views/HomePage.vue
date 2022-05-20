@@ -54,7 +54,7 @@
 
        <div  class="footer">
            <div v-if="hideAbout" class="grid-item">
-                <ion-icon  @click="aboutpage(0)" v-bind:class="{'isActive':isindex0}" class="footerbtn" src="../../assets/svg/info.svg"></ion-icon>
+                <ion-icon  @click="aboutpage(0)" class="footerbtn" src="../../assets/svg/info.svg"></ion-icon>
                  <p  @click="aboutpage(0)" >About</p>
             </div>
 
@@ -112,7 +112,6 @@ export default defineComponent({
           hideAbout: true,
           vegegrid: false,
           showMore: false,
-          isindex0: false,
           trigger: 0,
           triggershow: 0,
           swiper: null,
@@ -153,6 +152,7 @@ export default defineComponent({
 
      onSwiper(swiper) {
       this.swiper = swiper;
+      console.log(swiper)
     },
    
     click(incre){
@@ -165,7 +165,6 @@ export default defineComponent({
          this.swiper.slideTo(index);
       },
       homeClick(index){
-
          this.swiper.slideTo(index);
       },
     aboutpage(index){
